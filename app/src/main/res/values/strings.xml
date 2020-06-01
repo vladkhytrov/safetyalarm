@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Safety alarm</string>
+    <string name="app_name">PetaSOS</string>
+    <string name="be_home_by">Be home by:</string>
+    <string name="message">Message</string>
+    <string name="name">Name</string>
+    <string name="contacts">Contacts</string>
+    <string name="settings">Settings</string>
 </resources>

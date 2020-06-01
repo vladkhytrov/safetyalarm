@@ -15,6 +15,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        btn_back.setOnClickListener {
+            onBackPressed()
+        }
+
         val userStorage = UserStorage(this)
         val contactStorage = ContactStorage(this)
 

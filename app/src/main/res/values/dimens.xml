@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_s">8dp</dimen>
+    <dimen name="margin_m">16dp</dimen>
+    <dimen name="margin_l">32dp</dimen>
+
+    <dimen name="text_subtitle_1">16sp</dimen>
+    <dimen name="text_subtitle_2">14sp</dimen>
+    <dimen name="text_body_1">16sp</dimen>
+    <dimen name="text_body_2">14sp</dimen>
+    <dimen name="text_button">14sp</dimen>
+</resources>
