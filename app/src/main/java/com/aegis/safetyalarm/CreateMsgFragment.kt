@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.work.*
 import com.aegis.safetyalarm.data.ContactStorage
 import com.aegis.safetyalarm.data.SmsStorage
+import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.fragment_create_msg.*
 import kotlinx.android.synthetic.main.fragment_create_msg.btn_send
-import kotlinx.android.synthetic.main.fragment_create_msg.btn_settings
 import kotlinx.android.synthetic.main.fragment_create_msg.tv_date_time_create
 import java.text.DateFormat
 import java.util.*
@@ -26,7 +26,17 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_settings.setOnClickListener {
+        sendAt = Calendar.getInstance().apply {
+            add(Calendar.HOUR, 1)
+        }.timeInMillis
+
+        val formatted = DateFormat.getDateTimeInstance(
+            DateFormat.SHORT,
+            DateFormat.SHORT
+        ).format(Date(sendAt))
+        tv_date_time_create.text = formatted
+
+        view_settings.findViewById<MaterialButton>(R.id.btn_settings).setOnClickListener {
             val intent = Intent(requireContext(), SettingsActivity::class.java)
             startActivity(intent)
         }

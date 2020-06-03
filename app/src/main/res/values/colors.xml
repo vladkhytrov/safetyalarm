@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E3C833</color>
-    <color name="colorPrimaryDark">#E3C833</color>
-    <color name="colorAccent">#E3C833</color>
+    <color name="colorPrimary">#E2C543</color>
+    <color name="colorPrimaryDark">#E2C543</color>
+    <color name="colorAccent">#EBD04D</color>
 
-    <color name="background_grey">#F8F8F8</color>
+    <color name="background_grey">#FAFAFA</color>
     <color name="background_white">#FFFFFF</color>
     <color name="btn_secondary">#F0EFF4</color>
-    <color name="on_secondary">#828284</color>
-    <color name="black">#000000</color>
-    <color name="purple">#5B3483</color>
-    <color name="purple_light">#EFE8FA</color>
-    <color name="grey">#595858</color>
+    <color name="grey">#6C6C6C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#1B1B1D</color>
+    <color name="purple">#593B80</color>
+    <color name="purple_light">#EFEAFA</color>
 </resources>

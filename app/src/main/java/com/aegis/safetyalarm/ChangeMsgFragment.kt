@@ -9,15 +9,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.work.WorkManager
 import com.aegis.safetyalarm.data.SmsStorage
+import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.fragment_change_msg.*
-import kotlinx.android.synthetic.main.fragment_create_msg.btn_settings
-import kotlinx.android.synthetic.main.fragment_create_msg.tv_date_time_create
+import kotlinx.android.synthetic.main.fragment_create_msg.*
 import java.text.DateFormat
 import java.util.*
 
 class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +31,7 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         ).format(Date(time))
         tv_date_time_change.text = formatted
 
-        btn_settings.setOnClickListener {
+        view_settings.findViewById<MaterialButton>(R.id.btn_settings).setOnClickListener {
             val intent = Intent(requireContext(), SettingsActivity::class.java)
             startActivity(intent)
         }

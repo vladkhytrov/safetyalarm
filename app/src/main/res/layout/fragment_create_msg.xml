@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_grey">
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            android:text="PetaSOS"
+            android:text="@string/app_name"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="italic|bold"
@@ -46,30 +47,27 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lang1"
                 style="@style/ButtonLang"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:text="ENG"
                 android:textColor="#FFFFFF"
-                android:textSize="12sp"
                 app:backgroundTint="@color/purple" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lang2"
                 style="@style/ButtonLang"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="8dp"
-                android:text="ENG"
-                android:textSize="12sp" />
+                android:text="繁" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lang3"
                 style="@style/ButtonLang"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="8dp"
-                android:text="ENG"
-                android:textSize="12sp" />
+                android:text="简" />
 
         </LinearLayout>
 
@@ -81,42 +79,15 @@
         android:layout_height="100dp"
         android:layout_marginStart="@dimen/margin_m"
         android:layout_marginEnd="@dimen/margin_m"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="12dp"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/elevation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="@dimen/margin_m"
-                android:text="@string/settings"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_settings"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="@dimen/margin_m"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text=">"
-                android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/view_settings"
+            layout="@layout/card_settings" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -124,8 +95,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_m"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="12dp"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/elevation"
         app:layout_constraintBottom_toTopOf="@id/layout_buttons"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -147,6 +118,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_msg_create"
+                style="@style/styleBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="200dp" />
@@ -157,60 +129,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_m"
-                android:text="Schedule" />
+                android:text="@string/schedule" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_date_time_create"
-                style="@style/TextAppearance.MaterialComponents.Body1"
+                style="@style/styleBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_m"
                 android:layout_marginEnd="@dimen/margin_l"
-                android:text="Set"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="01/06/2020 14:30" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
-        android:id="@+id/layout_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_m"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+    android:id="@+id/layout_buttons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancel_create"
             style="@style/ButtonSecondary"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/margin_m"
-            android:layout_marginEnd="@dimen/margin_l"
-            android:layout_marginBottom="@dimen/margin_m"
+            android:layout_margin="@dimen/margin_m"
             android:layout_weight="1"
-            android:text="Cancel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:text="@string/cancel" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_send"
             style="@style/ButtonPrimary"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="@dimen/margin_m"
-            android:layout_marginBottom="@dimen/margin_m"
+            android:layout_margin="@dimen/margin_m"
             android:layout_weight="1"
-            android:text="Schedule"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:text="@string/schedule" />
 
     </LinearLayout>
 

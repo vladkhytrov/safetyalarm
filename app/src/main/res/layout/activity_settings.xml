@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_grey"
     tools:context=".SettingsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,13 +21,16 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_m"
             android:layout_marginStart="@dimen/margin_m"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="Back"
+            android:layout_marginTop="@dimen/margin_m"
+            android:fontFamily="sans-serif"
+            android:text="@string/back"
+            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textAllCaps="false"/>
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -41,12 +45,13 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/location_switch"
+            style="@style/styleSubtitle2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enable location service" />
+            android:text="@string/enable_location" />
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            style="@style/styleSubtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
@@ -59,11 +64,11 @@
             android:minWidth="200dp" />
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            style="@style/styleSubtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
-            android:text="Emergency contact" />
+            android:text="@string/emergency_contact" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_contact"
@@ -72,11 +77,11 @@
             android:minWidth="200dp" />
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            style="@style/styleSubtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
-            android:text="Secondary contact (optional)" />
+            android:text="@string/secondary_contact" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_contact_optional"
@@ -92,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_margin="@dimen/margin_m"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
