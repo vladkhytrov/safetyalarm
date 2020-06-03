@@ -3,19 +3,15 @@ package com.aegis.safetyalarm
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.DatePicker
-import android.widget.TimePicker
-import androidx.appcompat.app.AlertDialog
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import androidx.work.WorkManager
 import com.aegis.safetyalarm.data.SmsStorage
-import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.fragment_change_msg.*
-import kotlinx.android.synthetic.main.fragment_create_msg.*
-import java.text.DateFormat
 import java.util.*
 
 class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
+
+    private val currentTime: Calendar = Calendar.getInstance()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,14 +20,28 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         val time = smsStorage.getTime()
         val msg = smsStorage.getMsg()
         et_msg_edit.setText(msg)
+        setFormattedTime(time)
 
-        val formatted = DateFormat.getDateTimeInstance(
-            DateFormat.SHORT,
-            DateFormat.SHORT
-        ).format(Date(time))
-        tv_date_time_change.text = formatted
+        currentTime.timeInMillis = time
 
-        view_settings.findViewById<MaterialButton>(R.id.btn_settings).setOnClickListener {
+        btn_15_mins.setOnClickListener {
+            currentTime.add(Calendar.MINUTE, 15)
+            setFormattedTime(currentTime.timeInMillis)
+        }
+        btn_30_mins.setOnClickListener {
+            currentTime.add(Calendar.MINUTE, 30)
+            setFormattedTime(currentTime.timeInMillis)
+        }
+        btn_1_hour.setOnClickListener {
+            currentTime.add(Calendar.HOUR, 1)
+            setFormattedTime(currentTime.timeInMillis)
+        }
+        btn_2_hours.setOnClickListener {
+            currentTime.add(Calendar.HOUR, 2)
+            setFormattedTime(currentTime.timeInMillis)
+        }
+
+        view_settings_change.findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
             val intent = Intent(requireContext(), SettingsActivity::class.java)
             startActivity(intent)
         }
@@ -41,42 +51,28 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         }
 
         btn_cancel_change.setOnClickListener {
-            val workManager = WorkManager.getInstance(requireContext())
-            workManager.cancelAllWork()
+            SmsWorker.cancelAllWorks(requireContext())
             (activity as MainActivity).checkActiveWork()
+        }
+        btn_reset.setOnClickListener {
+            SmsWorker.cancelAllWorks(requireContext())
+            val newMsg = et_msg_edit.text.toString()
+            (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
         }
     }
 
-    // todo extract to class
-    private fun showDateTimePicker() {
-        val view = layoutInflater.inflate(R.layout.dialog_date_time, null)
-        val datePicker: DatePicker = view.findViewById(R.id.datepicker)
-        val timePicker: TimePicker = view.findViewById(R.id.timepicker)
-        datePicker.minDate = Calendar.getInstance().timeInMillis
+    private fun setFormattedTime(millis: Long) {
+        tv_date_time_change.text = millis.formatted()
+    }
 
-        AlertDialog.Builder(requireActivity())
-            .setView(view)
-            .setNegativeButton("Cancel") { dialog, which ->
-                dialog.dismiss()
+    private fun showDateTimePicker() {
+        DateTimeDialog(requireActivity()).show(object : DateTimeDialog.Callback {
+            override fun onPicked(calendar: Calendar) {
+                currentTime.timeInMillis = calendar.timeInMillis
+                tv_date_time_change.text = currentTime.timeInMillis.formatted()
             }
-            .setPositiveButton("Set") { dialog, which ->
-                dialog.dismiss()
-                val c = Calendar.getInstance()
-                c.set(
-                    datePicker.year,
-                    datePicker.month,
-                    datePicker.dayOfMonth,
-                    timePicker.currentHour,
-                    timePicker.currentMinute
-                )
-                val formatted = DateFormat.getDateTimeInstance(
-                    DateFormat.SHORT,
-                    DateFormat.SHORT
-                ).format(c.time)
-                tv_date_time_create.text = formatted
-            }
-            .create()
-            .show()
+        })
+
     }
 
 }
