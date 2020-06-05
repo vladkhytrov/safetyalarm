@@ -1,7 +1,6 @@
-package com.aegis.safetyalarm.data.db
+package com.aegis.petasos.data.db
 
 import androidx.room.*
-import com.aegis.safetyalarm.data.db.Contact
 
 @Dao
 interface ContactDao {

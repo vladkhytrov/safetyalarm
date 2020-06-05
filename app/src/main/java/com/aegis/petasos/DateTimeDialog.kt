@@ -1,10 +1,9 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.app.Activity
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.appcompat.app.AlertDialog
-import java.text.DateFormat
 import java.util.*
 
 class DateTimeDialog(private val activity: Activity) {

@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import java.text.DateFormat
 import java.util.*

@@ -1,8 +1,8 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.app.Application
 import androidx.room.Room
-import com.aegis.safetyalarm.data.db.AppDB
+import com.aegis.petasos.data.db.AppDB
 
 class App : Application() {
 

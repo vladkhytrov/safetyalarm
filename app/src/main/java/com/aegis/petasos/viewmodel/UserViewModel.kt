@@ -1,9 +1,9 @@
-package com.aegis.safetyalarm.viewmodel
+package com.aegis.petasos.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.aegis.safetyalarm.data.UserStorage
+import com.aegis.petasos.data.UserStorage
 
 class UserViewModel(private val userStorage: UserStorage) : ViewModel() {
 

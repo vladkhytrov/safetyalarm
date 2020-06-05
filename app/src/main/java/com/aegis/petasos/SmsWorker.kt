@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.content.Context
 import android.telephony.SmsManager

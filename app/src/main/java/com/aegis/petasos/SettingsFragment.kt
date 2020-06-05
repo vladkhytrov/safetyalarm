@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.app.Activity
 import android.content.Intent
@@ -8,9 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.aegis.safetyalarm.data.db.Contact
-import com.aegis.safetyalarm.viewmodel.ContactsViewModel
-import com.aegis.safetyalarm.viewmodel.UserViewModel
+import com.aegis.petasos.data.db.Contact
+import com.aegis.petasos.viewmodel.ContactsViewModel
+import com.aegis.petasos.viewmodel.UserViewModel
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.fragment_settings.*
 

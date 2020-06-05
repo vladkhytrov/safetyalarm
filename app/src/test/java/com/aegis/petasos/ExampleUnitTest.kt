@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import org.junit.Test
 

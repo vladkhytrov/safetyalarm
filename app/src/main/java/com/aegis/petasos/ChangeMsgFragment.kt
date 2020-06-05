@@ -1,11 +1,11 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.aegis.safetyalarm.viewmodel.SmsViewModel
+import com.aegis.petasos.viewmodel.SmsViewModel
 import kotlinx.android.synthetic.main.fragment_change_msg.*
 import java.util.*
 

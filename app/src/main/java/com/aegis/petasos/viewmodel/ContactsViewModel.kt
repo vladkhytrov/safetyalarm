@@ -1,10 +1,10 @@
-package com.aegis.safetyalarm.viewmodel
+package com.aegis.petasos.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.aegis.safetyalarm.data.db.Contact
-import com.aegis.safetyalarm.data.db.AppDB
+import com.aegis.petasos.data.db.Contact
+import com.aegis.petasos.data.db.AppDB
 
 class ContactsViewModel(private val db: AppDB) : ViewModel() {
 

@@ -1,10 +1,10 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import com.aegis.safetyalarm.data.SmsStorage
+import com.aegis.petasos.data.SmsStorage
 import kotlinx.android.synthetic.main.fragment_create_msg.*
 import java.util.*
 

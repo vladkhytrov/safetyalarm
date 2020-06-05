@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm.data.db
+package com.aegis.petasos.data.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

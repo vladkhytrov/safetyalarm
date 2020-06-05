@@ -1,21 +1,20 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.aegis.safetyalarm.data.SmsStorage
-import com.aegis.safetyalarm.data.UserStorage
-import com.aegis.safetyalarm.data.db.Contact
-import com.aegis.safetyalarm.viewmodel.ContactsViewModel
-import com.aegis.safetyalarm.viewmodel.SmsViewModel
-import com.aegis.safetyalarm.viewmodel.UserViewModel
+import com.aegis.petasos.data.SmsStorage
+import com.aegis.petasos.data.UserStorage
+import com.aegis.petasos.data.db.Contact
+import com.aegis.petasos.viewmodel.ContactsViewModel
+import com.aegis.petasos.viewmodel.SmsViewModel
+import com.aegis.petasos.viewmodel.UserViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm.data
+package com.aegis.petasos.data
 
 import android.content.Context
 

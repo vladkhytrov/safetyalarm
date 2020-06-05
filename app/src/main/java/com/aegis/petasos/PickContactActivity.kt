@@ -1,4 +1,4 @@
-package com.aegis.safetyalarm
+package com.aegis.petasos
 
 import android.app.Activity
 import android.content.Intent
