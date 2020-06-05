@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PetaSOS</string>
+    <string name="app_name">petaSOS</string>
     <string name="message">Message</string>
     <string name="name">Name</string>
     <string name="settings">Settings</string>
