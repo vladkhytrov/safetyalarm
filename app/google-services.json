@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "150302796799",
+    "firebase_url": "https://petasos-c129d.firebaseio.com",
+    "project_id": "petasos-c129d",
+    "storage_bucket": "petasos-c129d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150302796799:android:74f23fb4aed3b0ba16d5ca",
+        "android_client_info": {
+          "package_name": "com.aegis.petasos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150302796799-f6u8jive2jflb3gsfje652sckrsdvh9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-cdjc5IWwFPlqchmsa04JvmXuPFykA6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150302796799-f6u8jive2jflb3gsfje652sckrsdvh9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

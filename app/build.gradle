@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -33,8 +35,21 @@ android {
         jvmTarget = "1.8"
     }
 
-}
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def sep = "_"
+            def apkName = "PetaSOS" + sep
+            def version = defaultConfig.versionName
+            apkName = apkName + version
+            def buildType = variant.variantData.variantConfiguration.buildType.name
+            if (buildType == 'debug') {
+                apkName = apkName + sep + buildType
+            }
+            outputFileName = apkName + ".apk"
+        }
+    }
 
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -49,6 +64,9 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:2.3.4"
     implementation "androidx.room:room-runtime:2.2.5"
     kapt "androidx.room:room-compiler:2.2.5"
+
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
