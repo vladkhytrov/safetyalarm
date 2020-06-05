@@ -4,7 +4,7 @@ import android.content.Context
 
 class UserStorage(ctx: Context) {
 
-    private val prefs = ctx.getSharedPreferences("aegis", Context.MODE_PRIVATE)
+    private val prefs = ctx.getSharedPreferences("user", Context.MODE_PRIVATE)
     private val nameKey = "username"
 
     fun setName(name: String) {

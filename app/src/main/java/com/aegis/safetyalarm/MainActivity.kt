@@ -3,22 +3,49 @@ package com.aegis.safetyalarm
 import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import androidx.work.workDataOf
-import com.aegis.safetyalarm.data.ContactStorage
 import com.aegis.safetyalarm.data.SmsStorage
+import com.aegis.safetyalarm.data.UserStorage
+import com.aegis.safetyalarm.data.db.Contact
+import com.aegis.safetyalarm.viewmodel.ContactsViewModel
+import com.aegis.safetyalarm.viewmodel.SmsViewModel
+import com.aegis.safetyalarm.viewmodel.UserViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 // todo permissions
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var userViewModel: UserViewModel
+
+    private lateinit var smsViewModel: SmsViewModel
+
+    private lateinit var contactsViewModel: ContactsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        userViewModel = ViewModelProvider(
+            this,
+            UserViewModel.Factory(UserStorage(this))
+        ).get(UserViewModel::class.java)
+        smsViewModel = ViewModelProvider(
+            this,
+            SmsViewModel.Factory(SmsStorage(this))
+        ).get(SmsViewModel::class.java)
+        contactsViewModel = ViewModelProvider(
+            this,
+            ContactsViewModel.Factory(
+                (application as App).db
+            )
+        ).get(ContactsViewModel::class.java)
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), 100)
 
@@ -27,27 +54,49 @@ class MainActivity : AppCompatActivity() {
 
     fun sendSMS(sendAt: Long, msg: String, reset: Boolean = false) {
         if (sendAt <= 0 || sendAt <= System.currentTimeMillis()) {
-            Toast.makeText(this, "You need to set date and time", Toast.LENGTH_SHORT).show()
+            showToast("You need to set a valid date and time")
             return
         }
-        val contactStorage = ContactStorage(this)
-        val number = contactStorage.getContact()
-        if (number.isEmpty()) {
-            Toast.makeText(this, "You need to set contact number", Toast.LENGTH_SHORT).show()
+        val dateText = sendAt.formatted()
+
+        val username = userViewModel.username.value
+        if (username.isNullOrEmpty()) {
+            showToast("Your name is empty")
             return
         }
 
-        val inputData: Data = workDataOf(
-            "number" to number,
-            "msg" to msg
-        )
+        val emContacts = contactsViewModel.emergencyContacts.value.orEmpty()
+        val secContacts = contactsViewModel.secondaryContacts.value.orEmpty()
+        if (emContacts.isNullOrEmpty() && secContacts.isNullOrEmpty()) {
+            showToast("You must set al least one contact number")
+            return
+        }
+
+        val msgBuilder = StringBuilder()
+            .append("My name is ")
+            .append("$username\n")
+            .append("My present time to safety is: ")
+            .append("$dateText\n")
+            .append("$msg\n")
+            .append("Emergency contact(s):\n")
+
+        emContacts.iterator().forEach {
+            msgBuilder.append("${it.name} Phone: ${it.number}\n")
+        }
+
+        val msgToSend = msgBuilder.toString()
+        val allContacts = ArrayList<Contact>()
+        allContacts.addAll(emContacts)
+        allContacts.addAll(secContacts)
+
+        val inputData = Data.Builder()
+            .putString("msg", msgToSend)
+            .putStringArray("contacts", contactsToStringArray(allContacts).toTypedArray())
+            .build()
 
         val workId = SmsWorker.schedule(this, sendAt, inputData)
 
-        val smsStorage = SmsStorage(this)
-        smsStorage.saveWork(workId.toString())
-        smsStorage.saveTime(sendAt)
-        smsStorage.saveMsg(msg)
+        smsViewModel.setWork(workId.toString(), sendAt, msg)
 
         if (!reset) {
             showEditMsgFragment()
@@ -64,9 +113,30 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
+    /**
+     * Converts each contact to string array so that it can be passed to WorkManager
+     */
+    private fun contactsToStringArray(contacts: List<Contact>): List<String> {
+        val result = mutableListOf<String>()
+        contacts.iterator().forEach {
+            result.add(it.number)
+        }
+        return result
+    }
+
+    private fun showToast(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+    }
+
+    fun openSettings() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frame, SettingsFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
     fun checkActiveWork() {
-        val smsStorage = SmsStorage(this)
-        val workId = smsStorage.getWorkId()
+        val workId = smsViewModel.workId.value
         if (workId != null) {
             val workManager = WorkManager.getInstance(this)
             val workInfo = workManager.getWorkInfoById(UUID.fromString(workId)).get()

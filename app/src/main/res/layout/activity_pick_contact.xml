@@ -59,35 +59,37 @@
             style="@style/styleSubtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
             android:text="@string/name" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_name_pick"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:minWidth="200dp" />
+            android:layout_marginStart="@dimen/margin_s"
+            android:maxLines="1" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/styleSubtitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
             android:text="Phone number" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_number_pick"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginStart="@dimen/margin_s"
             android:inputType="phone"
-            android:minWidth="200dp" />
+            android:maxLines="1" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/styleSubtitle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
             android:text="or" />
 
         <com.google.android.material.button.MaterialButton
@@ -96,11 +98,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_m"
+            android:fontFamily="sans-serif"
             android:text="Pick from phone contacts"
-            android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif"/>
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

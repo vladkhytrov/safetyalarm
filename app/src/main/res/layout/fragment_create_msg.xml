@@ -88,8 +88,8 @@
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/card_settings" />
+        app:layout_constraintBottom_toTopOf="@id/card_settings"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/margin_l">
+            android:padding="@dimen/margin_xl">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_msg"
@@ -119,9 +119,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_msg_create"
                 style="@style/styleBody"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minWidth="200dp" />
+                android:layout_marginStart="@dimen/margin_s" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_be_home_by"
@@ -136,8 +136,8 @@
                 style="@style/styleBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_s"
                 android:layout_marginTop="@dimen/margin_m"
-                android:layout_marginEnd="@dimen/margin_l"
                 android:textSize="16sp"
                 tools:text="01/06/2020 14:30" />
 
@@ -146,13 +146,13 @@
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
-    android:id="@+id/layout_buttons"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent">
+        android:id="@+id/layout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancel_create"

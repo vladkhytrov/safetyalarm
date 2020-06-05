@@ -1,24 +1,26 @@
 package com.aegis.safetyalarm
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import com.aegis.safetyalarm.data.SmsStorage
+import androidx.fragment.app.activityViewModels
+import com.aegis.safetyalarm.viewmodel.SmsViewModel
 import kotlinx.android.synthetic.main.fragment_change_msg.*
 import java.util.*
 
 class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
+
+    private val smsViewModel by activityViewModels<SmsViewModel>()
 
     private val currentTime: Calendar = Calendar.getInstance()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val smsStorage = SmsStorage(requireContext())
-        val time = smsStorage.getTime()
-        val msg = smsStorage.getMsg()
+
+        val time = smsViewModel.time.value!!
+        val msg = smsViewModel.msg.value
         et_msg_edit.setText(msg)
         setFormattedTime(time)
 
@@ -42,8 +44,7 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         }
 
         view_settings_change.findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
-            val intent = Intent(requireContext(), SettingsActivity::class.java)
-            startActivity(intent)
+            (activity as MainActivity).openSettings()
         }
 
         tv_date_time_change.setOnClickListener {

@@ -12,7 +12,7 @@
     <string name="plus_2_hours">+ 2 hours</string>
     <string name="back">Back</string>
     <string name="enable_location">Enable location service</string>
-    <string name="emergency_contact">Emergency Contact</string>
-    <string name="secondary_contact">Secondary Contact (optional)</string>
+    <string name="emergency_contact">Emergency Contacts</string>
+    <string name="secondary_contact">Secondary Contacts (optional)</string>
     <string name="save">Save</string>
 </resources>

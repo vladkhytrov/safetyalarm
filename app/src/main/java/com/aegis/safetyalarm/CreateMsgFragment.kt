@@ -1,6 +1,5 @@
 package com.aegis.safetyalarm
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -23,8 +22,7 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
         tv_date_time_create.text = sendAt.formatted()
 
         view_settings_create.findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
-            val intent = Intent(requireContext(), SettingsActivity::class.java)
-            startActivity(intent)
+            (activity as MainActivity).openSettings()
         }
 
         btn_send.setOnClickListener {

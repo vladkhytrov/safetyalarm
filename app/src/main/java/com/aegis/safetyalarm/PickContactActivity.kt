@@ -5,10 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pick_contact.*
 
-class PickContactActivity : AppCompatActivity() {
+class PickContactActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,7 @@ class PickContactActivity : AppCompatActivity() {
                     putExtra("number", number)
                     putExtra("name", name)
                 }
-                setResult(Activity.RESULT_OK, data)
+                setResult(RESULT_OK, data)
                 finish()
             }
         }
@@ -42,7 +41,7 @@ class PickContactActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && data != null) {
+        if (resultCode == RESULT_OK && data != null) {
             try {
                 val uri = data.data
                 val cursor = contentResolver.query(uri!!, null, null, null, null)

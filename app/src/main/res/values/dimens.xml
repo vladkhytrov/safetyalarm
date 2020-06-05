@@ -5,7 +5,8 @@
 
     <dimen name="margin_s">8dp</dimen>
     <dimen name="margin_m">16dp</dimen>
-    <dimen name="margin_l">32dp</dimen>
+    <dimen name="margin_l">24dp</dimen>
+    <dimen name="margin_xl">32dp</dimen>
 
     <dimen name="text_subtitle">18sp</dimen>
     <dimen name="text_body">16sp</dimen>

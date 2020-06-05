@@ -12,10 +12,13 @@ class SmsWorker(
 ) : Worker(context, params) {
 
     override fun doWork(): Result {
-        val number = params.inputData.getString("number")
         val msg = params.inputData.getString("msg")
+        val contacts = params.inputData.getStringArray("contacts")
+
         val smsManager = SmsManager.getDefault()
-        smsManager.sendTextMessage(number, null, msg, null, null)
+        contacts?.forEach {
+            smsManager.sendTextMessage(it, null, msg, null, null)
+        }
         return Result.success()
     }
 

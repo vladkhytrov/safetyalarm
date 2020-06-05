@@ -7,7 +7,7 @@ import android.content.Context
  */
 class SmsStorage(ctx: Context) {
 
-    private val prefs = ctx.getSharedPreferences("aegis", Context.MODE_PRIVATE)
+    private val prefs = ctx.getSharedPreferences("sms", Context.MODE_PRIVATE)
     private val workKey = "workId"
     private val timeKey = "time"
     private val msgKey = "msg"
