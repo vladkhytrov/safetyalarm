@@ -1,10 +1,17 @@
 package com.aegis.petasos
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.aegis.petasos.data.SmsStorage
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.fragment_create_msg.*
 import java.util.*
 
@@ -39,8 +46,28 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
     }
 
     private fun sendSMS() {
-        val msg = et_msg_create.text.toString()
-        (activity as MainActivity).sendSMS(sendAt, msg)
+        Dexter.withContext(requireContext())
+            .withPermission(Manifest.permission.SEND_SMS)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+                    val msg = et_msg_create.text.toString()
+                    (activity as MainActivity).sendSMS(sendAt, msg)
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    request: PermissionRequest?,
+                    token: PermissionToken?
+                ) {
+                    // todo
+                    token?.continuePermissionRequest()
+                }
+
+                override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+                    // todo
+                }
+
+            })
+            .check()
     }
 
     private fun showDateTimePicker() {

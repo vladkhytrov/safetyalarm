@@ -46,8 +46,6 @@ class MainActivity : AppCompatActivity() {
             )
         ).get(ContactsViewModel::class.java)
 
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), 100)
-
         checkActiveWork()
     }
 
