@@ -11,17 +11,17 @@
     <string name="plus_30_mins">+30分钟</string>
     <string name="plus_1_hour">+1小时</string>
     <string name="plus_2_hours">+2小时</string>
-    <string name="back">Back</string>
+    <string name="back">返回</string>
     <string name="enable_location">启用定位服务</string>
     <string name="emergency_contact">紧急联络</string>
     <string name="secondary_contact">其他联络</string>
     <string name="send_at">预计发信时间</string>
-    <string name="add_contact">Add contact</string>
-    <string name="msg_created">Message has been scheduled</string>
-    <string name="msg_changed">Message has been modified</string>
-    <string name="msg_cancelled">Message has been cancelled</string>
-    <string name="validation_date">请预算时间</string>
-    <string name="validation_name">Your name is empty</string>
-    <string name="validation_contacts">You must set at least one contact number</string>
-    <string name="validation_number">Phone number is required</string>
+    <string name="add_contact">输入联络人</string>
+    <string name="msg_created">信息预计成功！</string>
+    <string name="msg_changed">信息完成更新。</string>
+    <string name="msg_cancelled">信息已取消。</string>
+    <string name="validation_date">请预定时间</string>
+    <string name="validation_name">信息已取消。</string>
+    <string name="validation_contacts">请输入最少一位联络人。</string>
+    <string name="validation_number">请输入联络人电话号码。</string>
 </resources>

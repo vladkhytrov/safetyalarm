@@ -16,12 +16,12 @@
     <string name="emergency_contact">Emergency Contact(s)</string>
     <string name="secondary_contact">Secondary Contact(s)</string>
     <string name="send_at">Message will be sent at:</string>
-    <string name="add_contact">Add contact</string>
-    <string name="msg_created">Message has been scheduled</string>
-    <string name="msg_changed">Message has been modified</string>
-    <string name="msg_cancelled">Message has been cancelled</string>
+    <string name="add_contact">Specify contact info</string>
+    <string name="msg_created">Your message is scheduled!</string>
+    <string name="msg_changed">Your message is updated.</string>
+    <string name="msg_cancelled">Your message is cancelled.</string>
     <string name="validation_date">Please specify a future time</string>
-    <string name="validation_name">Your name is empty</string>
-    <string name="validation_contacts">You must set at least one contact number</string>
-    <string name="validation_number">Phone number is required</string>
+    <string name="validation_name">Please specify your full name.</string>
+    <string name="validation_contacts">Please specify at least one contact.</string>
+    <string name="validation_number">Please specify phone number.</string>
 </resources>
