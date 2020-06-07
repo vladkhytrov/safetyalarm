@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">petaSOS</string>
+    <string name="message">信息</string>
+    <string name="name">用戶全名</string>
+    <string name="settings">設定</string>
+    <string name="schedule">安排</string>
+    <string name="cancel">取消</string>
+    <string name="reset">重設</string>
+    <string name="plus_15_mins">+15分鐘</string>
+    <string name="plus_30_mins">+30分鐘</string>
+    <string name="plus_1_hour">+1小時</string>
+    <string name="plus_2_hours">+2小時</string>
+    <string name="back">Back</string>
+    <string name="enable_location">啟用定位服務</string>
+    <string name="emergency_contact">緊急聯絡</string>
+    <string name="secondary_contact">其他聯絡</string>
+    <string name="send_at">預計發信時間</string>
+    <string name="add_contact">Add contact</string>
+    <string name="msg_created">Message has been scheduled</string>
+    <string name="msg_changed">Message has been modified</string>
+    <string name="msg_cancelled">Message has been cancelled</string>
+    <string name="validation_date">請預算時間</string>
+    <string name="validation_name">Your name is empty</string>
+    <string name="validation_contacts">You must set at least one contact number</string>
+    <string name="validation_number">Phone number is required</string>
+</resources>

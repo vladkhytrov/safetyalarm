@@ -75,7 +75,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private fun createAddContactChip(): Chip {
         val chip = Chip(requireContext())
-        chip.text = "Add contact"
+        chip.text = getString(R.string.add_contact)
         chip.chipBackgroundColor = ContextCompat.getColorStateList(
             requireContext(),
             R.color.chip_color_selector

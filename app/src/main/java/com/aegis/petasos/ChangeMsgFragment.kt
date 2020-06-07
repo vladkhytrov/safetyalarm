@@ -53,7 +53,9 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
         btn_cancel_change.setOnClickListener {
             SmsWorker.cancelAllWorks(requireContext())
-            (activity as MainActivity).checkActiveWork()
+            val act = (activity as MainActivity)
+            act.showToast(getString(R.string.msg_cancelled))
+            act.checkActiveWork()
         }
         btn_reset.setOnClickListener {
             SmsWorker.cancelAllWorks(requireContext())

@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_m"
-                    android:text="@string/schedule" />
+                    android:text="@string/send_at" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_date_time_change"

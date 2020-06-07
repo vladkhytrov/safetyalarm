@@ -26,7 +26,7 @@ class PickContactActivity : Activity() {
         btn_confirm_contact.setOnClickListener {
             val number = et_number_pick.text.toString().trim()
             if (number.isEmpty()) {
-                Toast.makeText(this, "Phone number is empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.validation_number), Toast.LENGTH_SHORT).show()
             } else {
                 val name = et_name_pick.text.toString().trim()
                 val data = Intent().apply {

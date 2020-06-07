@@ -1,10 +1,8 @@
 package com.aegis.petasos
 
-import android.Manifest
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
@@ -51,21 +49,21 @@ class MainActivity : AppCompatActivity() {
 
     fun sendSMS(sendAt: Long, msg: String, reset: Boolean = false) {
         if (sendAt <= 0 || sendAt <= System.currentTimeMillis()) {
-            showToast("You need to set a valid date and time")
+            showToast(getString(R.string.validation_date))
             return
         }
         val dateText = sendAt.formatted()
 
         val username = userViewModel.username.value
         if (username.isNullOrEmpty()) {
-            showToast("Your name is empty")
+            showToast(getString(R.string.validation_name))
             return
         }
 
         val emContacts = contactsViewModel.emergencyContacts.value.orEmpty()
         val secContacts = contactsViewModel.secondaryContacts.value.orEmpty()
         if (emContacts.isNullOrEmpty() && secContacts.isNullOrEmpty()) {
-            showToast("You must set al least one contact number")
+            showToast(getString(R.string.validation_contacts))
             return
         }
 
@@ -97,6 +95,9 @@ class MainActivity : AppCompatActivity() {
 
         if (!reset) {
             showEditMsgFragment()
+            showToast(getString(R.string.msg_created))
+        } else {
+            showToast(getString(R.string.msg_changed))
         }
 
         val workManager = WorkManager.getInstance(this)
@@ -121,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         return result
     }
 
-    private fun showToast(text: String) {
+    fun showToast(text: String) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 
