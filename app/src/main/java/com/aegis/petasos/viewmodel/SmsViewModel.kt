@@ -37,6 +37,11 @@ class SmsViewModel(private val smsStorage: SmsStorage) : ViewModel() {
         refresh()
     }
 
+    fun deleteWork() {
+        smsStorage.deleteWork()
+        refresh()
+    }
+
     fun setTime(time: Long) {
         smsStorage.saveTime(time)
         this.time.value = time

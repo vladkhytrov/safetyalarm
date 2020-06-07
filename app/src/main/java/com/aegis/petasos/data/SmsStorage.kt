@@ -20,6 +20,10 @@ class SmsStorage(ctx: Context) {
         prefs.edit().putString(workKey, workId).apply()
     }
 
+    fun deleteWork() {
+        prefs.edit().putString(workKey, null).apply()
+    }
+
     fun getTime(): Long {
         return prefs.getLong(timeKey, 0)
     }

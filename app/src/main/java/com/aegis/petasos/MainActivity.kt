@@ -139,10 +139,13 @@ class MainActivity : AppCompatActivity() {
             val workInfo = workManager.getWorkInfoById(UUID.fromString(workId)).get()
             if (workInfo.state == WorkInfo.State.RUNNING || workInfo.state == WorkInfo.State.ENQUEUED) {
                 showEditMsgFragment()
+            } else {
+                smsViewModel.deleteWork()
+                showCreateMsgFragment()
             }
+        } else {
+            showCreateMsgFragment()
         }
-        // todo delete work from storage
-        showCreateMsgFragment()
     }
 
     private fun showCreateMsgFragment() {
