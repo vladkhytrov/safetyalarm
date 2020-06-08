@@ -23,7 +23,7 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
         super.onViewCreated(view, savedInstanceState)
 
         sendAt = Calendar.getInstance().apply {
-            add(Calendar.HOUR, 1)
+            add(Calendar.MINUTE, 1)
         }.timeInMillis
 
         tv_date_time_create.text = sendAt.formatted()

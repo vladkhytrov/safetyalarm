@@ -67,7 +67,6 @@
                 style="@style/styleSubtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
                 android:text="@string/enable_location" />
 
             <com.google.android.material.textview.MaterialTextView

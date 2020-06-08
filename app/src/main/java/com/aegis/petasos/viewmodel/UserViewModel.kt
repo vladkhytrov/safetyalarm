@@ -16,14 +16,26 @@ class UserViewModel(private val userStorage: UserStorage) : ViewModel() {
     }
 
     val username = MutableLiveData<String>()
+    val locationEnabled = MutableLiveData<Boolean>()
 
     init {
+        refresh()
+    }
+
+    private fun refresh() {
         username.value = userStorage.getName()
+        locationEnabled.value = userStorage.isLocationEnabled()
     }
 
     fun setUsername(name: String) {
         userStorage.setName(name)
         username.value = userStorage.getName()
+        refresh()
+    }
+
+    fun setLocationEnabled(enabled: Boolean) {
+        userStorage.setLocationEnabled(enabled)
+        refresh()
     }
 
 }

@@ -1,6 +1,10 @@
 package com.aegis.petasos
 
+import android.content.Context
+import android.content.Intent
+import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +19,7 @@ import com.aegis.petasos.viewmodel.SmsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 // todo permissions
 class MainActivity : AppCompatActivity() {
@@ -67,6 +72,12 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        // todo show dialog
+        val locationEnabled = userViewModel.locationEnabled.value!!
+        if (locationEnabled) {
+            requestEnableGPS()
+        }
+
         val msgBuilder = StringBuilder()
             .append("My name is ")
             .append("$username\n")
@@ -85,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         allContacts.addAll(secContacts)
 
         val inputData = Data.Builder()
+            .putBoolean("locationEnabled", locationEnabled)
             .putString("msg", msgToSend)
             .putStringArray("contacts", contactsToStringArray(allContacts).toTypedArray())
             .build()
@@ -109,6 +121,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
+    }
+
+    private fun requestEnableGPS() {
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        if (!enabled) {
+            val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+            startActivity(intent)
+        }
     }
 
     /**

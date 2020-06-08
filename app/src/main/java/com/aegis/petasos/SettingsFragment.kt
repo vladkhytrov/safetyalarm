@@ -1,9 +1,13 @@
 package com.aegis.petasos
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.CompoundButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -12,6 +16,11 @@ import com.aegis.petasos.data.db.Contact
 import com.aegis.petasos.viewmodel.ContactsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
 import com.google.android.material.chip.Chip
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
@@ -29,8 +38,44 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             requireActivity().onBackPressed()
         }
 
+        location_switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                val permissions = mutableListOf(Manifest.permission.ACCESS_FINE_LOCATION)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    permissions.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                }
+                Dexter.withContext(requireContext())
+                    .withPermissions(permissions)
+                    .withListener(object : MultiplePermissionsListener {
+                        override fun onPermissionsChecked(result: MultiplePermissionsReport) {
+                            if (result.areAllPermissionsGranted()) {
+                                userViewModel.setLocationEnabled(true)
+                            } else {
+                                userViewModel.setLocationEnabled(false)
+                                location_switch.isChecked = false
+                            }
+                        }
+
+                        override fun onPermissionRationaleShouldBeShown(
+                            request: MutableList<PermissionRequest>,
+                            token: PermissionToken
+                        ) {
+                            token.continuePermissionRequest()
+                        }
+
+                    })
+                    .check()
+            } else {
+                userViewModel.setLocationEnabled(false)
+            }
+        }
+
         userViewModel.username.observe(viewLifecycleOwner, Observer {
             et_username.setText(it)
+        })
+
+        userViewModel.locationEnabled.observe(viewLifecycleOwner, Observer {
+            location_switch.isChecked = it
         })
 
         contactsViewModel.emergencyContacts.observe(viewLifecycleOwner, Observer {
