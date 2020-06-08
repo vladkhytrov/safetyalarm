@@ -27,12 +27,14 @@ class SmsWorker(
         }
         var msg = params.inputData.getString("msg")
         val contacts = params.inputData.getStringArray("contacts")
-        if (locationText.isNotEmpty()) {
-            msg += locationText
-        }
+
         val smsManager = SmsManager.getDefault()
         contacts?.forEach {
             smsManager.sendTextMessage(it, null, msg, null, null)
+            if (locationText.isNotEmpty()) {
+                //msg += locationText
+                smsManager.sendTextMessage(it, null, locationText, null, null)
+            }
         }
         return Result.success()
     }

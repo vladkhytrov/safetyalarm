@@ -6,15 +6,19 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.aegis.petasos.*
+import com.aegis.petasos.App
+import com.aegis.petasos.R
+import com.aegis.petasos.SmsWorker
 import com.aegis.petasos.data.SmsStorage
 import com.aegis.petasos.data.UserStorage
 import com.aegis.petasos.data.db.Contact
+import com.aegis.petasos.formatted
 import com.aegis.petasos.fragment.ChangeMsgFragment
 import com.aegis.petasos.fragment.CreateMsgFragment
 import com.aegis.petasos.fragment.SettingsFragment
@@ -76,7 +80,6 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // todo show dialog
         val locationEnabled = userViewModel.locationEnabled.value!!
         if (locationEnabled) {
             requestEnableGPS()
@@ -136,8 +139,18 @@ class MainActivity : AppCompatActivity() {
         val enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
         if (!enabled) {
-            val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-            startActivity(intent)
+            AlertDialog.Builder(this)
+                .setMessage("Allow access to location")
+                .setNegativeButton("Cancel") { dialog, which ->
+                    dialog?.dismiss()
+                }
+                .setPositiveButton("OK") { dialog, which ->
+                    dialog?.dismiss()
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    startActivity(intent)
+                }
+                .create()
+                .show()
         }
     }
 
