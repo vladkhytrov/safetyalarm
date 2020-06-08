@@ -3,7 +3,6 @@ package com.aegis.petasos.fragment
 import android.Manifest
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.aegis.petasos.DateTimeDialog
 import com.aegis.petasos.R
@@ -26,15 +25,18 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        childFragmentManager.beginTransaction()
+            .replace(
+                R.id.create_msg_settings_container,
+                SettingsWidgetFragment()
+            )
+            .commit()
+
         sendAt = Calendar.getInstance().apply {
             add(Calendar.MINUTE, 1)
         }.timeInMillis
 
         tv_date_time_create.text = sendAt.formatted()
-
-        view_settings_create.findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
-            (activity as MainActivity).openSettings()
-        }
 
         btn_send.setOnClickListener {
             sendSMS()

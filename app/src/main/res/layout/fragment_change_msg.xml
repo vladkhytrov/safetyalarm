@@ -72,9 +72,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline">
 
-        <include
-            android:id="@+id/view_settings_change"
-            layout="@layout/card_settings" />
+        <FrameLayout
+            android:id="@+id/change_msg_settings_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </com.google.android.material.card.MaterialCardView>
 

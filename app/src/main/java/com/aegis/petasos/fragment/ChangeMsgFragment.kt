@@ -23,7 +23,6 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val time = smsViewModel.time.value!!
         val msg = smsViewModel.msg.value
         et_msg_edit.setText(msg)
@@ -48,9 +47,12 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
             setFormattedTime(currentTime.timeInMillis)
         }
 
-        view_settings_change.findViewById<ImageButton>(R.id.btn_settings).setOnClickListener {
-            (activity as MainActivity).openSettings()
-        }
+        childFragmentManager.beginTransaction()
+            .replace(
+                R.id.change_msg_settings_container,
+                SettingsWidgetFragment()
+            )
+            .commit()
 
         tv_date_time_change.setOnClickListener {
             showDateTimePicker()
