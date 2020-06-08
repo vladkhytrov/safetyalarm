@@ -4,57 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_grey"
-    tools:context=".fragment.SettingsFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_head"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/ic_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_m"
-            android:layout_marginTop="26dp"
-            android:src="@drawable/ic_back_arrow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_back"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="@dimen/margin_m"
-            android:fontFamily="sans-serif"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:padding="0dp"
-            android:text="@string/back"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/ic_back"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".activity.IntroActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_m"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_continue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint_head">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,11 +22,23 @@
             android:orientation="vertical"
             android:padding="@dimen/margin_m">
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_intro"
+                style="@style/styleSubtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/intro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/location_switch"
+                android:id="@+id/location_switch_intro"
                 style="@style/styleSubtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
                 android:text="@string/enable_location" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -76,12 +48,21 @@
                 android:layout_marginTop="@dimen/margin_l"
                 android:text="@string/name" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_username"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_layout"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_s"
-                android:maxLines="1" />
+                app:boxBackgroundColor="@color/white"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_username_intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/styleSubtitle2"
@@ -91,7 +72,7 @@
                 android:text="@string/emergency_contact" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group_em"
+                android:id="@+id/chip_group_em_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_s"
@@ -106,7 +87,7 @@
                 android:text="@string/secondary_contact" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group_sec"
+                android:id="@+id/chip_group_sec_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_s"
@@ -117,15 +98,15 @@
 
     </ScrollView>
 
-    <!--    <com.google.android.material.button.MaterialButton-->
-    <!--        android:id="@+id/btn_save"-->
-    <!--        style="@style/ButtonPrimary"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="58dp"-->
-    <!--        android:layout_margin="@dimen/margin_m"-->
-    <!--        android:text="@string/save"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintRight_toRightOf="parent" />-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_continue"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_margin="@dimen/margin_m"
+        android:text="Continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

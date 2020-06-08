@@ -7,6 +7,7 @@ class UserStorage(ctx: Context) {
     private val prefs = ctx.getSharedPreferences("user", Context.MODE_PRIVATE)
     private val nameKey = "username"
     private val locationKey = "location"
+    private val firstLaunchKey = "firstLaunch"
 
     fun setName(name: String) {
         prefs.edit().putString(nameKey, name).apply()
@@ -22,6 +23,14 @@ class UserStorage(ctx: Context) {
 
     fun setLocationEnabled(enabled: Boolean) {
         prefs.edit().putBoolean(locationKey, enabled).apply()
+    }
+
+    fun isFirstLaunch(): Boolean {
+        return prefs.getBoolean(firstLaunchKey, true)
+    }
+
+    fun setFirstLaunch(first: Boolean) {
+        prefs.edit().putBoolean(firstLaunchKey, first).apply()
     }
 
 }

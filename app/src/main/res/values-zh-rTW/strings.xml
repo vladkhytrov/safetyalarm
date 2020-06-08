@@ -24,4 +24,7 @@
     <string name="validation_name">請輸入您的全名。</string>
     <string name="validation_contacts">請輸入最少一位聯絡人。</string>
     <string name="validation_number">請輸入聯絡人電話號碼。</string>
+    <string name="intro">預計SMS信息收信人。信息可包含發信地點。
+預計信息<b>只存於用戶電話</b>。本應用<b>不會追踪用戶地點</b>，只在預計時間把用戶地點加入信息中。
+</string>
 </resources>

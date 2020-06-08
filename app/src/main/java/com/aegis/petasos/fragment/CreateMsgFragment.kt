@@ -1,11 +1,15 @@
-package com.aegis.petasos
+package com.aegis.petasos.fragment
 
 import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import com.aegis.petasos.DateTimeDialog
+import com.aegis.petasos.R
+import com.aegis.petasos.activity.MainActivity
 import com.aegis.petasos.data.SmsStorage
+import com.aegis.petasos.formatted
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -71,7 +75,8 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
     }
 
     private fun showDateTimePicker() {
-        DateTimeDialog(requireActivity()).show(object : DateTimeDialog.Callback {
+        DateTimeDialog(requireActivity())
+            .show(object : DateTimeDialog.Callback {
             override fun onPicked(calendar: Calendar) {
                 tv_date_time_create.text = calendar.timeInMillis.formatted()
                 sendAt = calendar.timeInMillis

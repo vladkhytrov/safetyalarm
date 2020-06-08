@@ -1,10 +1,15 @@
-package com.aegis.petasos
+package com.aegis.petasos.fragment
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.aegis.petasos.DateTimeDialog
+import com.aegis.petasos.R
+import com.aegis.petasos.SmsWorker
+import com.aegis.petasos.activity.MainActivity
+import com.aegis.petasos.formatted
 import com.aegis.petasos.viewmodel.SmsViewModel
 import kotlinx.android.synthetic.main.fragment_change_msg.*
 import java.util.*
@@ -69,7 +74,8 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
     }
 
     private fun showDateTimePicker() {
-        DateTimeDialog(requireActivity()).show(object : DateTimeDialog.Callback {
+        DateTimeDialog(requireActivity())
+            .show(object : DateTimeDialog.Callback {
             override fun onPicked(calendar: Calendar) {
                 currentTime.timeInMillis = calendar.timeInMillis
                 tv_date_time_change.text = currentTime.timeInMillis.formatted()

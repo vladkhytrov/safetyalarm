@@ -1,13 +1,14 @@
-package com.aegis.petasos
+package com.aegis.petasos.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.aegis.petasos.R
 import kotlinx.android.synthetic.main.activity_pick_contact.*
 
-class PickContactActivity : Activity() {
+class PickContactActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,8 @@ class PickContactActivity : Activity() {
         btn_confirm_contact.setOnClickListener {
             val number = et_number_pick.text.toString().trim()
             if (number.isEmpty()) {
-                Toast.makeText(this, getString(R.string.validation_number), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.validation_number), Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 val name = et_name_pick.text.toString().trim()
                 val data = Intent().apply {

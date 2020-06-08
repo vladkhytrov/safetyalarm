@@ -1,4 +1,4 @@
-package com.aegis.petasos
+package com.aegis.petasos.activity
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import com.aegis.petasos.*
 import com.aegis.petasos.data.SmsStorage
 import com.aegis.petasos.data.UserStorage
 import com.aegis.petasos.data.db.Contact
+import com.aegis.petasos.fragment.ChangeMsgFragment
+import com.aegis.petasos.fragment.CreateMsgFragment
+import com.aegis.petasos.fragment.SettingsFragment
 import com.aegis.petasos.viewmodel.ContactsViewModel
 import com.aegis.petasos.viewmodel.SmsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
@@ -101,7 +105,11 @@ class MainActivity : AppCompatActivity() {
             .putStringArray("contacts", contactsToStringArray(allContacts).toTypedArray())
             .build()
 
-        val workId = SmsWorker.schedule(this, sendAt, inputData)
+        val workId = SmsWorker.schedule(
+            this,
+            sendAt,
+            inputData
+        )
 
         smsViewModel.setWork(workId.toString(), sendAt, msg)
 
@@ -150,7 +158,10 @@ class MainActivity : AppCompatActivity() {
 
     fun openSettings() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.frame, SettingsFragment())
+            .add(
+                R.id.frame,
+                SettingsFragment()
+            )
             .addToBackStack(null)
             .commit()
     }
@@ -173,13 +184,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun showCreateMsgFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frame, CreateMsgFragment())
+            .replace(
+                R.id.frame,
+                CreateMsgFragment()
+            )
             .commit()
     }
 
     private fun showEditMsgFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frame, ChangeMsgFragment())
+            .replace(
+                R.id.frame,
+                ChangeMsgFragment()
+            )
             .commit()
     }
 

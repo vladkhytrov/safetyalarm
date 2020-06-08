@@ -1,17 +1,17 @@
-package com.aegis.petasos
+package com.aegis.petasos.fragment
 
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.CompoundButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import com.aegis.petasos.R
+import com.aegis.petasos.activity.PickContactActivity
 import com.aegis.petasos.data.db.Contact
 import com.aegis.petasos.viewmodel.ContactsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
@@ -125,7 +125,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             requireContext(),
             R.color.chip_color_selector
         )
-        chip.chipIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_add)
+        chip.chipIcon = ContextCompat.getDrawable(requireContext(),
+            R.drawable.ic_add
+        )
         return chip
     }
 
