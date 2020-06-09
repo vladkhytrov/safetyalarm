@@ -1,7 +1,9 @@
 package com.aegis.petasos.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.IntentSender
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
@@ -25,6 +27,9 @@ import com.aegis.petasos.fragment.SettingsFragment
 import com.aegis.petasos.viewmodel.ContactsViewModel
 import com.aegis.petasos.viewmodel.SmsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.*
+import com.google.android.gms.tasks.Task
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -32,10 +37,10 @@ import kotlin.collections.ArrayList
 // todo permissions
 class MainActivity : AppCompatActivity() {
 
+    private val REQUEST_CHECK_SETTINGS = 1000
+
     private lateinit var userViewModel: UserViewModel
-
     private lateinit var smsViewModel: SmsViewModel
-
     private lateinit var contactsViewModel: ContactsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -135,22 +140,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestEnableGPS() {
-        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-        if (!enabled) {
-            AlertDialog.Builder(this)
-                .setMessage("Allow access to location")
-                .setNegativeButton("Cancel") { dialog, which ->
-                    dialog?.dismiss()
+        val locationRequest = LocationRequest.create().apply {
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
+        val builder = LocationSettingsRequest.Builder()
+            .addLocationRequest(locationRequest)
+        val client: SettingsClient = LocationServices.getSettingsClient(this)
+        val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
+        task.addOnFailureListener { exception ->
+            if (exception is ResolvableApiException){
+                try {
+                    // Show the dialog by calling startResolutionForResult(),
+                    // and check the result in onActivityResult().
+                    exception.startResolutionForResult(this@MainActivity, REQUEST_CHECK_SETTINGS)
+                } catch (sendEx: IntentSender.SendIntentException) {
+                    // Ignore the error.
                 }
-                .setPositiveButton("OK") { dialog, which ->
-                    dialog?.dismiss()
-                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                    startActivity(intent)
-                }
-                .create()
-                .show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CHECK_SETTINGS) {
+            if (resultCode != Activity.RESULT_OK) {
+                // todo
+            }
         }
     }
 
