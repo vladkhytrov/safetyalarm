@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">petaSOS</string>
+    <string name="intro">Schedule an SMS to your trusted contact(s), with your latest location.
+Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; <b>only pulled when</b> the message is sent at scheduled time.
+</string>
     <string name="message">Message</string>
     <string name="name">User full name</string>
     <string name="settings">Settings</string>
@@ -24,7 +27,9 @@
     <string name="validation_name">Please specify your full name.</string>
     <string name="validation_contacts">Please specify at least one contact.</string>
     <string name="validation_number">Please specify phone number.</string>
-    <string name="intro">Schedule an SMS to your trusted contact(s), with your latest location.
-Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; <b>only pulled when</b> the message is sent at scheduled time.
-</string>
+    <string name="validation_password">Wrong password</string>
+    <string name="ok">OK</string>
+    <string name="set_password">Set a password</string>
+    <string name="password_description">Needed to cancel the message</string>
+    <string name="password">Password</string>
 </resources>

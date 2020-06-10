@@ -11,6 +11,7 @@ class SmsStorage(ctx: Context) {
     private val workKey = "workId"
     private val timeKey = "time"
     private val msgKey = "msg"
+    private val passKey = "pass"
 
     fun getWorkId(): String? {
         return prefs.getString(workKey, null)
@@ -38,6 +39,18 @@ class SmsStorage(ctx: Context) {
 
     fun saveMsg(msg: String) {
         prefs.edit().putString(msgKey, msg).apply()
+    }
+
+    fun getPass(): String {
+        return prefs.getString(passKey, "").orEmpty()
+    }
+
+    fun savePass(pass: String) {
+        prefs.edit().putString(passKey, pass).apply()
+    }
+
+    fun deletePass() {
+        savePass("")
     }
 
 }

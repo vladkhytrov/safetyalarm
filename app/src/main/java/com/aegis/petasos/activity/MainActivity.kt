@@ -4,11 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
-import android.location.LocationManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import android.provider.Settings
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
@@ -33,7 +34,6 @@ import com.google.android.gms.tasks.Task
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 // todo permissions
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +46,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            try {
+//                val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+//                val pkg = applicationContext.packageName
+//                if (!powerManager.isIgnoringBatteryOptimizations(pkg)) {
+//                    val intent = Intent()
+//                    intent.action = Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS
+//                    startActivity(intent)
+//                }
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//        }
 
         userViewModel = ViewModelProvider(
             this,
@@ -133,6 +147,7 @@ class MainActivity : AppCompatActivity() {
             .observe(this, androidx.lifecycle.Observer { workInfo ->
                 workInfo?.let {
                     if (it.state.isFinished && it.state != WorkInfo.State.CANCELLED) {
+                        SmsStorage(this).deletePass()
                         showCreateMsgFragment()
                     }
                 }
@@ -148,7 +163,7 @@ class MainActivity : AppCompatActivity() {
         val client: SettingsClient = LocationServices.getSettingsClient(this)
         val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
         task.addOnFailureListener { exception ->
-            if (exception is ResolvableApiException){
+            if (exception is ResolvableApiException) {
                 try {
                     // Show the dialog by calling startResolutionForResult(),
                     // and check the result in onActivityResult().
@@ -199,9 +214,10 @@ class MainActivity : AppCompatActivity() {
         if (workId != null) {
             val workManager = WorkManager.getInstance(this)
             val workInfo = workManager.getWorkInfoById(UUID.fromString(workId)).get()
-            if (workInfo.state == WorkInfo.State.RUNNING || workInfo.state == WorkInfo.State.ENQUEUED) {
+            if (workInfo != null && (workInfo.state == WorkInfo.State.RUNNING || workInfo.state == WorkInfo.State.ENQUEUED)) {
                 showEditMsgFragment()
             } else {
+                SmsStorage(this).deletePass()
                 smsViewModel.deleteWork()
                 showCreateMsgFragment()
             }

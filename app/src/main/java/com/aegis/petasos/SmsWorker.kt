@@ -22,7 +22,8 @@ class SmsWorker(
             if (location != null) {
                 val lat = location.latitude
                 val long = location.longitude
-                locationText = "Last location: https://www.google.com/maps/search/?api=1&query=$lat,$long"
+                locationText =
+                    "Last location: https://www.google.com/maps/search/?api=1&query=$lat,$long"
             }
         }
         var msg = params.inputData.getString("msg")

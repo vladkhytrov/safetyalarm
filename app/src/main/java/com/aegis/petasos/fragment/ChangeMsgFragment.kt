@@ -5,11 +5,9 @@ import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.aegis.petasos.DateTimeDialog
-import com.aegis.petasos.R
-import com.aegis.petasos.SmsWorker
+import com.aegis.petasos.*
 import com.aegis.petasos.activity.MainActivity
-import com.aegis.petasos.formatted
+import com.aegis.petasos.data.SmsStorage
 import com.aegis.petasos.viewmodel.SmsViewModel
 import kotlinx.android.synthetic.main.fragment_change_msg.*
 import java.util.*
@@ -59,16 +57,46 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         }
 
         btn_cancel_change.setOnClickListener {
-            SmsWorker.cancelAllWorks(requireContext())
-            val act = (activity as MainActivity)
-            act.showToast(getString(R.string.msg_cancelled))
-            act.checkActiveWork()
+            val smsStorage = SmsStorage(requireContext())
+            val pass = smsStorage.getPass()
+            if (pass.isNotEmpty()) {
+                PasswordDialog.showPassUnlock(requireActivity(), object : PasswordDialog.Callback {
+                    override fun onResult(success: Boolean) {
+                        if (success) {
+                            cancelMsg()
+                        }
+                    }
+                })
+            }
+
         }
         btn_reset.setOnClickListener {
-            SmsWorker.cancelAllWorks(requireContext())
-            val newMsg = et_msg_edit.text.toString()
-            (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
+            val smsStorage = SmsStorage(requireContext())
+            val pass = smsStorage.getPass()
+            if (pass.isNotEmpty()) {
+                PasswordDialog.showPassUnlock(requireActivity(), object : PasswordDialog.Callback {
+                    override fun onResult(success: Boolean) {
+                        if (success) {
+                            resetMsg()
+                        }
+                    }
+                })
+            }
         }
+    }
+
+    private fun cancelMsg() {
+        SmsWorker.cancelAllWorks(requireContext())
+        SmsStorage(requireContext()).deletePass()
+        val act = (activity as MainActivity)
+        act.showToast(getString(R.string.msg_cancelled))
+        act.checkActiveWork()
+    }
+
+    private fun resetMsg() {
+        SmsWorker.cancelAllWorks(requireContext())
+        val newMsg = et_msg_edit.text.toString()
+        (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
     }
 
     private fun setFormattedTime(millis: Long) {
@@ -78,11 +106,11 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
     private fun showDateTimePicker() {
         DateTimeDialog(requireActivity())
             .show(object : DateTimeDialog.Callback {
-            override fun onPicked(calendar: Calendar) {
-                currentTime.timeInMillis = calendar.timeInMillis
-                tv_date_time_change.text = currentTime.timeInMillis.formatted()
-            }
-        })
+                override fun onPicked(calendar: Calendar) {
+                    currentTime.timeInMillis = calendar.timeInMillis
+                    tv_date_time_change.text = currentTime.timeInMillis.formatted()
+                }
+            })
 
     }
 
