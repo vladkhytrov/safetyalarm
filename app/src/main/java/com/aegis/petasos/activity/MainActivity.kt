@@ -1,14 +1,9 @@
 package com.aegis.petasos.activity
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.PowerManager
-import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -46,20 +41,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            try {
-//                val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-//                val pkg = applicationContext.packageName
-//                if (!powerManager.isIgnoringBatteryOptimizations(pkg)) {
-//                    val intent = Intent()
-//                    intent.action = Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS
-//                    startActivity(intent)
-//                }
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//        }
 
         userViewModel = ViewModelProvider(
             this,

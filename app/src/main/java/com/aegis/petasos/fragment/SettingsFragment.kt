@@ -5,7 +5,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -15,6 +17,7 @@ import com.aegis.petasos.activity.PickContactActivity
 import com.aegis.petasos.data.db.Contact
 import com.aegis.petasos.viewmodel.ContactsViewModel
 import com.aegis.petasos.viewmodel.UserViewModel
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -36,6 +39,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         btn_back.setOnClickListener {
             requireActivity().onBackPressed()
+        }
+        btn_battery_info.setOnClickListener {
+            showBatteryDialog()
         }
 
         location_switch.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -87,6 +93,24 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         })
     }
 
+    private fun showBatteryDialog() {
+        val batteryView = layoutInflater.inflate(R.layout.dialog_battery_saver, null)
+        val close = batteryView.findViewById<MaterialButton>(R.id.btn_battery_close)
+        val settings = batteryView.findViewById<MaterialButton>(R.id.btn_battery_settings)
+
+        val dialog = AlertDialog.Builder(requireActivity())
+            .setView(batteryView)
+            .create()
+        dialog.show()
+        close.setOnClickListener {
+            dialog.dismiss()
+        }
+        settings.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_SETTINGS))
+            dialog.dismiss()
+        }
+    }
+
     override fun onStop() {
         super.onStop()
         userViewModel.setUsername(et_username.text.toString().trim())
@@ -125,7 +149,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             requireContext(),
             R.color.chip_color_selector
         )
-        chip.chipIcon = ContextCompat.getDrawable(requireContext(),
+        chip.chipIcon = ContextCompat.getDrawable(
+            requireContext(),
             R.drawable.ic_add
         )
         return chip

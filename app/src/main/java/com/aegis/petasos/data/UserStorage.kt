@@ -8,7 +8,6 @@ class UserStorage(ctx: Context) {
     private val nameKey = "username"
     private val locationKey = "location"
     private val firstLaunchKey = "firstLaunch"
-    private val backgroundKey = "backgroundAlert"
 
     fun setName(name: String) {
         prefs.edit().putString(nameKey, name).apply()
@@ -32,14 +31,6 @@ class UserStorage(ctx: Context) {
 
     fun setFirstLaunch(first: Boolean) {
         prefs.edit().putBoolean(firstLaunchKey, first).apply()
-    }
-
-    fun isShowBackgroundAlert(): Boolean {
-        return prefs.getBoolean(backgroundKey, true)
-    }
-
-    fun seShowBackgroundAlert(show: Boolean) {
-        prefs.edit().putBoolean(backgroundKey, show).apply()
     }
 
 }
