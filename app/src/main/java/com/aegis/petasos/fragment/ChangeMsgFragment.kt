@@ -81,6 +81,8 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
                         }
                     }
                 })
+            } else {
+                resetMsg()
             }
         }
     }
