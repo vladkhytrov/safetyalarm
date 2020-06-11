@@ -41,16 +41,16 @@ class SmsStorage(ctx: Context) {
         prefs.edit().putString(msgKey, msg).apply()
     }
 
-    fun getPass(): String {
-        return prefs.getString(passKey, "").orEmpty()
-    }
-
-    fun savePass(pass: String) {
-        prefs.edit().putString(passKey, pass).apply()
-    }
-
-    fun deletePass() {
-        savePass("")
-    }
+//    fun getPass(): String {
+//        return prefs.getString(passKey, "").orEmpty()
+//    }
+//
+//    fun savePass(pass: String) {
+//        prefs.edit().putString(passKey, pass).apply()
+//    }
+//
+//    fun deletePass() {
+//        savePass("")
+//    }
 
 }

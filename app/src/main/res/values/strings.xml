@@ -32,10 +32,18 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="set_password">Set a password</string>
     <string name="password_description">Needed to cancel the message</string>
     <string name="password">Password</string>
-    <string name="settings_annotation">* changes will not affect already scheduled message</string>
+    <string name="settings_annotation">*Changes will not affect already scheduled message</string>
     <!--SMS-->
     <string name="my_name_is">My name is:</string>
     <string name="my_preset_time">My preset time to safety is:</string>
-    <string name="phone">Phone:</string>
     <string name="last_location">Last location:</string>
+    <string name="bg_btn">Battery optimizations</string>
+    <string name="bg_title">Disable battery optimizations</string>
+    <string name="bg_1">Due to battery optimizations your device may restrict background work for petaSOS and block scheduled message.</string>
+    <string name="bg_2">We strongly recommend you to disable battery optimizations for petaSOS to allow the app work in background. This will not consume more power.</string>
+    <string name="bg_3">To do this go to:\n Battery > App launch > petaSOS > Manage manually></string>
+    <string name="bg_4">or\n Apps > Advanced > Special app access > Battery optimization></string>
+    <string name="bg_5">(May differ depending on phone model)</string>
+    <string name="open_phone_settings">Open phone settings</string>
+    <string name="close">Close</string>
 </resources>

@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             .append("${getString(R.string.emergency_contact)}\n")
 
         emContacts.iterator().forEach {
-            msgBuilder.append("${it.name} ${getString(R.string.phone)} ${it.number}\n")
+            msgBuilder.append("${it.name} ${it.number}\n")
         }
 
         val msgToSend = msgBuilder.toString()
@@ -129,7 +129,6 @@ class MainActivity : AppCompatActivity() {
             .observe(this, androidx.lifecycle.Observer { workInfo ->
                 workInfo?.let {
                     if (it.state.isFinished && it.state != WorkInfo.State.CANCELLED) {
-                        SmsStorage(this).deletePass()
                         showCreateMsgFragment()
                     }
                 }
@@ -199,7 +198,6 @@ class MainActivity : AppCompatActivity() {
             if (workInfo != null && (workInfo.state == WorkInfo.State.RUNNING || workInfo.state == WorkInfo.State.ENQUEUED)) {
                 showEditMsgFragment()
             } else {
-                SmsStorage(this).deletePass()
                 smsViewModel.deleteWork()
                 showCreateMsgFragment()
             }

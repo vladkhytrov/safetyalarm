@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_m"
-        android:text="Disable battery optimizations" />
+        android:text="@string/bg_title" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/styleDialogBody"
@@ -20,7 +20,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_m"
         android:gravity="center_horizontal"
-        android:text="Due to battery optimizations your device may restrict background work for petaSOS and block scheduled message." />
+        android:text="@string/bg_1" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/styleDialogBody"
@@ -29,8 +29,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_m"
         android:gravity="center_horizontal"
-        android:text="We strongly recommend you to disable battery optimizations for petaSOS to allow the app work in background.
-This will not consume more power." />
+        android:text="@string/bg_2" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/styleDialogBody"
@@ -39,8 +38,7 @@ This will not consume more power." />
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_m"
         android:gravity="center_horizontal"
-        android:text="To do this go to:\n
-Battery > App launch > petaSOS > Manage manually" />
+        android:text="@string/bg_3" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/styleDialogBody"
@@ -48,8 +46,7 @@ Battery > App launch > petaSOS > Manage manually" />
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:text="or\n
-Apps > Advanced > Special app access > Battery optimization" />
+        android:text="@string/bg_4" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/styleDialogBody"
@@ -58,7 +55,7 @@ Apps > Advanced > Special app access > Battery optimization" />
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_m"
         android:gravity="center_horizontal"
-        android:text="(May differ depending on phone model)"
+        android:text="@string/bg_5"
         android:textColor="@color/grey"
         android:textSize="14sp" />
 
@@ -74,7 +71,7 @@ Apps > Advanced > Special app access > Battery optimization" />
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Close" />
+            android:text="@string/close" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_battery_settings"
@@ -82,7 +79,7 @@ Apps > Advanced > Special app access > Battery optimization" />
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Open phone settings" />
+            android:text="@string/open_phone_settings" />
 
     </LinearLayout>
 

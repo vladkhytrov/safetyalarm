@@ -11,7 +11,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class PasswordDialog {
 
-    interface Callback {
+    /*interface Callback {
         fun onResult(success: Boolean)
     }
 
@@ -26,7 +26,7 @@ class PasswordDialog {
                 .setView(view)
                 .setPositiveButton(R.string.ok) { dialog, which ->
                     val passInput = etPass.text.toString().trim()
-                    smsStorage.savePass(passInput)
+                    //smsStorage.savePass(passInput)
                     callback.onResult(true)
                     dialog.dismiss()
                 }
@@ -54,17 +54,17 @@ class PasswordDialog {
                 dialog.dismiss()
             }
             btnOk.setOnClickListener {
-                val passInput = etPass.text.toString().trim()
+                /*val passInput = etPass.text.toString().trim()
                 val pass = smsStorage.getPass()
                 if (pass == passInput) {
                     callback.onResult(true)
                     dialog.dismiss()
                 } else {
                     layoutPass.error = ctx.getString(R.string.validation_password)
-                }
+                }*/
             }
         }
 
-    }
+    }*/
 
 }

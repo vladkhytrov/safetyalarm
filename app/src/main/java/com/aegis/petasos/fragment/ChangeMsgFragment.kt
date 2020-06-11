@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.aegis.petasos.*
 import com.aegis.petasos.activity.MainActivity
-import com.aegis.petasos.data.SmsStorage
 import com.aegis.petasos.viewmodel.SmsViewModel
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.fragment_change_msg.*
@@ -60,35 +59,11 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
         }
 
         btn_cancel_change.setOnClickListener {
-            val smsStorage = SmsStorage(requireContext())
-            val pass = smsStorage.getPass()
-            if (pass.isNotEmpty()) {
-                PasswordDialog.showPassUnlock(requireActivity(), object : PasswordDialog.Callback {
-                    override fun onResult(success: Boolean) {
-                        if (success) {
-                            cancelMsg()
-                        }
-                    }
-                })
-            } else {
-                cancelMsg()
-            }
+            cancelMsg()
 
         }
         btn_reset.setOnClickListener {
-            val smsStorage = SmsStorage(requireContext())
-            val pass = smsStorage.getPass()
-            if (pass.isNotEmpty()) {
-                PasswordDialog.showPassUnlock(requireActivity(), object : PasswordDialog.Callback {
-                    override fun onResult(success: Boolean) {
-                        if (success) {
-                            resetMsg()
-                        }
-                    }
-                })
-            } else {
-                resetMsg()
-            }
+            resetMsg()
         }
     }
 
@@ -135,7 +110,6 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
     private fun cancelMsg() {
         SmsWorker.cancelAllWorks(requireContext())
-        SmsStorage(requireContext()).deletePass()
         val act = (activity as MainActivity)
         act.showToast(getString(R.string.msg_cancelled))
         act.checkActiveWork()

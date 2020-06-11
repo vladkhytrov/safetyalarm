@@ -4,13 +4,13 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.aegis.petasos.*
+import com.aegis.petasos.DateTimeDialog
+import com.aegis.petasos.R
 import com.aegis.petasos.activity.MainActivity
 import com.aegis.petasos.data.SmsStorage
-import com.google.android.material.textview.MaterialTextView
+import com.aegis.petasos.formatted
+import com.aegis.petasos.setImg
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -102,7 +102,8 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
             .withPermission(Manifest.permission.SEND_SMS)
             .withListener(object : PermissionListener {
                 override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                    showPassDialog()
+                    val msg = et_msg_create.text.toString()
+                    (activity as MainActivity).sendSMS(sendAt, msg)
                 }
 
                 override fun onPermissionRationaleShouldBeShown(
@@ -119,15 +120,6 @@ class CreateMsgFragment : Fragment(R.layout.fragment_create_msg) {
 
             })
             .check()
-    }
-
-    private fun showPassDialog() {
-        PasswordDialog.showPassLock(requireActivity(), object : PasswordDialog.Callback {
-            override fun onResult(success: Boolean) {
-                val msg = et_msg_create.text.toString()
-                (activity as MainActivity).sendSMS(sendAt, msg)
-            }
-        })
     }
 
     private fun showDateTimePicker() {
