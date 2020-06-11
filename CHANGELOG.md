@@ -10,7 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-## [1.1] - 2020-06-11
+## [1.3] - 2020-06-12
+- Added battery optimization prompt.
+- Scheduled time label replaced with button.
+- Implemented language switch.
+- Fixed SMS 160 chars limit issue.
+- Added annotation to settings page.
+- Disabled passcode feature.
+
+## [1.2] - 2020-06-11
 - Added system prompt to enable GPS.
 - Implemented password lock for messages.
 
