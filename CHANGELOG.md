@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-## [1.1] - 2020-00-09
+## [1.1] - 2020-06-11
+- Added system prompt to enable GPS.
+- Implemented password lock for messages.
+
+## [1.1] - 2020-06-09
 - Implemented location.
 - Added Splash and Intro screens.
 - Implemented settings widget.
