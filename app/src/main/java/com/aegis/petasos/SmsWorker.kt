@@ -5,6 +5,7 @@ import android.telephony.SmsManager
 import androidx.work.*
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Tasks
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -31,10 +32,15 @@ class SmsWorker(
 
         val smsManager = SmsManager.getDefault()
         contacts?.forEach {
-            smsManager.sendTextMessage(it, null, msg, null, null)
-            if (locationText.isNotEmpty()) {
-                //msg += locationText
-                smsManager.sendTextMessage(it, null, locationText, null, null)
+            try {
+                if (locationText.isNotEmpty()) {
+                    msg += locationText
+                }
+                val parts = smsManager.divideMessage(msg)
+                smsManager.sendMultipartTextMessage(it, null, parts, null, null)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                FirebaseCrashlytics.getInstance().recordException(e)
             }
         }
         return Result.success()
