@@ -32,4 +32,9 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="set_password">Set a password</string>
     <string name="password_description">Needed to cancel the message</string>
     <string name="password">Password</string>
+    <!--SMS-->
+    <string name="my_name_is">My name is:</string>
+    <string name="my_preset_time">My preset time to safety is:</string>
+    <string name="phone">Phone:</string>
+    <string name="last_location">Last location:</string>
 </resources>

@@ -105,15 +105,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val msgBuilder = StringBuilder()
-            .append("My name is ")
-            .append("$username\n")
-            .append("My present time to safety is: ")
-            .append("$dateText\n")
+            .append(getString(R.string.my_name_is))
+            .append(" $username\n")
+            .append(getString(R.string.my_preset_time))
+            .append(" $dateText\n")
             .append("$msg\n")
-            .append("Emergency contact(s):\n")
+            .append("${getString(R.string.emergency_contact)}\n")
 
         emContacts.iterator().forEach {
-            msgBuilder.append("${it.name} Phone: ${it.number}\n")
+            msgBuilder.append("${it.name} ${getString(R.string.phone)} ${it.number}\n")
         }
 
         val msgToSend = msgBuilder.toString()
