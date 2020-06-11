@@ -76,7 +76,7 @@
         <FrameLayout
             android:id="@+id/create_msg_settings_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -132,14 +132,20 @@
                 android:layout_marginTop="@dimen/margin_m"
                 android:text="@string/send_at" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/tv_date_time_create"
-                style="@style/styleBody"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_s"
                 android:layout_marginTop="@dimen/margin_m"
-                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_body"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_schedule"
+                app:iconPadding="@dimen/margin_m"
+                app:iconTint="@color/black"
                 tools:text="01/06/2020 14:30" />
 
         </LinearLayout>
@@ -156,6 +162,6 @@
         android:text="@string/schedule"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
