@@ -31,30 +31,25 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/lang1"
-                style="@style/ButtonLang"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="ENG"
-                android:textColor="#FFFFFF"
-                app:backgroundTint="@color/purple" />
+            <ImageView
+                android:id="@+id/img_eng"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/eng_on" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/lang2"
-                style="@style/ButtonLang"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:text="繁" />
+            <ImageView
+                android:id="@+id/img_ch_tr"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="@dimen/margin_s"
+                android:src="@drawable/tchin_off" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/lang3"
-                style="@style/ButtonLang"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:text="简" />
+            <ImageView
+                android:id="@+id/img_ch_sim"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="@dimen/margin_s"
+                android:src="@drawable/schin_off" />
 
         </LinearLayout>
 

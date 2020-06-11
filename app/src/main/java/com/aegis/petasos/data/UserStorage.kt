@@ -8,6 +8,7 @@ class UserStorage(ctx: Context) {
     private val nameKey = "username"
     private val locationKey = "location"
     private val firstLaunchKey = "firstLaunch"
+    private val langKey = "langKey"
 
     fun setName(name: String) {
         prefs.edit().putString(nameKey, name).apply()
@@ -31,6 +32,14 @@ class UserStorage(ctx: Context) {
 
     fun setFirstLaunch(first: Boolean) {
         prefs.edit().putBoolean(firstLaunchKey, first).apply()
+    }
+
+    fun getLang(): String {
+        return prefs.getString(langKey, "").orEmpty()
+    }
+
+    fun setLang(lang: String) {
+        prefs.edit().putString(langKey, lang).apply()
     }
 
 }

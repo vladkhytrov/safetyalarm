@@ -29,7 +29,6 @@ import com.google.android.gms.tasks.Task
 import java.util.*
 import kotlin.collections.ArrayList
 
-// todo permissions
 class MainActivity : AppCompatActivity() {
 
     private val REQUEST_CHECK_SETTINGS = 1000
@@ -41,6 +40,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val locale = Locale.SIMPLIFIED_CHINESE
 
         userViewModel = ViewModelProvider(
             this,
