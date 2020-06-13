@@ -24,11 +24,12 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_intro"
-                style="@style/styleSubtitle1"
+                style="@style/styleSubtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/intro"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
