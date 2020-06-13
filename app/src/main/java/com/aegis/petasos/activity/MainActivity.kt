@@ -1,5 +1,7 @@
 package com.aegis.petasos.activity
 
+import android.R.attr.name
+import android.R.id
 import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender
@@ -10,13 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.work.Data
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.aegis.petasos.App
+import com.aegis.petasos.*
 import com.aegis.petasos.R
-import com.aegis.petasos.SmsWorker
 import com.aegis.petasos.data.SmsStorage
 import com.aegis.petasos.data.UserStorage
 import com.aegis.petasos.data.db.Contact
-import com.aegis.petasos.formatted
 import com.aegis.petasos.fragment.ChangeMsgFragment
 import com.aegis.petasos.fragment.CreateMsgFragment
 import com.aegis.petasos.fragment.SettingsFragment
@@ -26,8 +26,10 @@ import com.aegis.petasos.viewmodel.UserViewModel
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.Task
+import com.google.firebase.analytics.FirebaseAnalytics
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -131,8 +133,21 @@ class MainActivity : AppCompatActivity() {
                     if (it.state.isFinished && it.state != WorkInfo.State.CANCELLED) {
                         showCreateMsgFragment()
                     }
+                    if (it.state == WorkInfo.State.CANCELLED) {
+                        val bundle = Bundle()
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, it.id.toString())
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sms")
+                        FirebaseAnalytics.getInstance(this).
+                        logEvent(Analytics.Event.SMS_CANCELED, bundle)
+                    }
                 }
             })
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, workId.toString())
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sms")
+        bundle.putString(Analytics.Param.SENDING_TIME, sendAt.toString())
+        FirebaseAnalytics.getInstance(this).logEvent(Analytics.Event.SMS_CREATED, bundle)
     }
 
     private fun requestEnableGPS() {
