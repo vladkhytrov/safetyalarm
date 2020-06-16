@@ -25,7 +25,7 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
         val time = smsViewModel.time.value!!
         val msg = smsViewModel.msg.value
-        et_msg_edit.setText(msg)
+        tv_msg.text = msg
         setFormattedTime(time)
 
         currentTime.timeInMillis = time
@@ -117,7 +117,7 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
     private fun resetMsg() {
         SmsWorker.cancelAllWorks(requireContext())
-        val newMsg = et_msg_edit.text.toString()
+        val newMsg = tv_msg.text.toString()
         (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
     }
 
