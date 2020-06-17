@@ -1,10 +1,12 @@
 package com.aegis.petasos
 
 import android.content.Context
+import android.os.Bundle
 import android.telephony.SmsManager
 import androidx.work.*
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.Tasks
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -43,6 +45,13 @@ class SmsWorker(
                 FirebaseCrashlytics.getInstance().recordException(e)
             }
         }
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id.toString())
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sms")
+        bundle.putString(Analytics.Param.SENT_AT, Calendar.getInstance().timeInMillis.toString())
+        FirebaseAnalytics.getInstance(context).logEvent(Analytics.Event.SMS_SENT, bundle)
+
         return Result.success()
     }
 

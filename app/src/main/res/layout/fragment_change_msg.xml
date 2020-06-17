@@ -108,14 +108,14 @@
                 android:padding="@dimen/margin_xl">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_msg"
+                    android:id="@+id/tv_msg_label"
                     style="@style/styleSubtitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/message" />
+                    android:text="Active message" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_msg_edit"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_msg"
                     style="@style/styleBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
