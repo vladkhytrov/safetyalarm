@@ -23,11 +23,6 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.activity_intro.*
-import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.fragment_settings.chip_group_em
-import kotlinx.android.synthetic.main.fragment_settings.chip_group_sec
-import kotlinx.android.synthetic.main.fragment_settings.et_username
-import kotlinx.android.synthetic.main.fragment_settings.location_switch
 
 class IntroActivity : AppCompatActivity() {
 
@@ -41,7 +36,7 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        btn_continue.setOnClickListener {
+        btn_intro_continue.setOnClickListener {
             val username = et_username_intro.text.toString().trim()
             if (username.isEmpty()) {
                 username_layout.error = getString(R.string.validation_name)

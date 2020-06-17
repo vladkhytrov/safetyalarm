@@ -13,6 +13,17 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="AppTheme.Intro" parent="AppTheme">
+    </style>
+
+    <style name="ButtonIntro" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/text_btn_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
     <style name="ButtonPrimary">
         <item name="cornerRadius">@dimen/corner_radius</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -56,6 +67,24 @@
         <item name="android:minWidth">0dp</item>
         <item name="android:minHeight">0dp</item>
         <item name="strokeColor">#00000000</item>
+    </style>
+
+    <style name="introTitle">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="introSubtitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="introBody">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grey</item>
     </style>
 
     <style name="styleSubtitle1">
