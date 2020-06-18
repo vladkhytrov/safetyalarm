@@ -43,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val locale = Locale.SIMPLIFIED_CHINESE
-
         userViewModel = ViewModelProvider(
             this,
             UserViewModel.Factory(UserStorage(this))
@@ -64,8 +62,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendSMS(sendAt: Long, msg: String, reset: Boolean = false) {
+        // check for future date
         if (sendAt <= 0 || sendAt <= System.currentTimeMillis()) {
             showToast(getString(R.string.validation_date))
+            return
+        }
+        // check 72 hours limit
+        val diff = sendAt - System.currentTimeMillis()
+        val hour = 3600000
+        if (diff.div(hour) > 72) {
+            showToast(getString(R.string.validation_72_hours))
             return
         }
         val dateText = sendAt.formatted()
@@ -94,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             .append(getString(R.string.my_preset_time))
             .append(" $dateText\n")
             .append("$msg\n")
-            .append("${getString(R.string.emergency_contact)}\n")
+            .append("${getString(R.string.emergency_contact)}:\n")
 
         emContacts.iterator().forEach {
             msgBuilder.append("${it.name} ${it.number}\n")
