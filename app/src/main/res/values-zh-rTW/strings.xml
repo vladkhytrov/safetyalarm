@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">petaSOS</string>
+    <string name="app_name">petaSOS 飛甲</string>
+    <string name="intro">預計SMS信息收信人。信息可包含發信地點。
+預計信息<b>只存於用戶電話</b>。本應用<b>不會追踪用戶地點</b>，只在預計時間把用戶地點加入信息中。
+</string>
     <string name="message">信息</string>
     <string name="name">用戶全名</string>
     <string name="settings">設定</string>
@@ -24,7 +27,26 @@
     <string name="validation_name">請輸入您的全名。</string>
     <string name="validation_contacts">請輸入最少一位聯絡人。</string>
     <string name="validation_number">請輸入聯絡人電話號碼。</string>
-    <string name="intro">預計SMS信息收信人。信息可包含發信地點。
-預計信息<b>只存於用戶電話</b>。本應用<b>不會追踪用戶地點</b>，只在預計時間把用戶地點加入信息中。
-</string>
+    <string name="validation_72_hours">Set a time within 72 hours period</string>
+    <string name="ok">確定</string>
+    <string name="settings_annotation">若有已息預計信息，設定更新不受影響。</string>
+    <string name="dialog_cancel_msg">Are you sure to cancel the message ?</string>
+    <!--SMS-->
+    <string name="my_name_is">我的名字:</string>
+    <string name="my_preset_time">預計安全時間:</string>
+    <string name="last_location">發信地點:</string>
+    <!--Battery-->
+    <string name="bg_btn">注意:最佳效果</string>
+    <string name="bg_title">取消最佳化電池用量</string>
+    <string name="bg_1">為何要取消最佳化電池用量?\n
+因為最佳化電池用量可能會限制petaSOS 飛甲在背景運作，不能把信息發放。</string>
+    <string name="bg_2">我們強烈建議你把最佳化電池用量取消。這設定不會增加耗電量。</string>
+    <string name="bg_3">不同電話型號會稍不同步驟：\n
+設定＞應用程式＞petaSOS 飛甲＞電池＞
+最佳化電池用量＞所有應用程式＞petaSOS 飛甲＞關閉</string>
+    <string name="bg_4">或\n
+裝置維護＞電量＞應用程式電量管理＞
+不少進入休眠的應用程式＞加上petaSOS 飛甲</string>
+    <string name="open_phone_settings">Open phone settings</string>
+    <string name="close">Close</string>
 </resources>

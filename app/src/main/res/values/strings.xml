@@ -27,25 +27,21 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="validation_name">Please specify your full name.</string>
     <string name="validation_contacts">Please specify at least one contact.</string>
     <string name="validation_number">Please specify phone number.</string>
-    <string name="validation_password">Wrong password</string>
     <string name="validation_72_hours">Set a time within 72 hours period</string>
     <string name="ok">OK</string>
-    <string name="set_password">Set a password</string>
-    <string name="password_description">Needed to cancel the message</string>
-    <string name="password">Password</string>
     <string name="settings_annotation">*Changes will not affect already scheduled message</string>
-    <string name="dialog_cancel_msg">Are you sure to cancel the message ?</string>
+    <string name="dialog_cancel_msg">Are you sure to cancel the message?</string>
     <!--SMS-->
     <string name="my_name_is">My name is:</string>
     <string name="my_preset_time">My preset time to safety is:</string>
     <string name="last_location">Last location:</string>
-    <string name="bg_btn">Battery optimizations</string>
-    <string name="bg_title">Disable battery optimizations</string>
-    <string name="bg_1">Due to battery optimizations your device may restrict background work for petaSOS and block scheduled message.</string>
-    <string name="bg_2">We strongly recommend you to disable battery optimizations for petaSOS to allow the app work in background. This will not consume more power.</string>
-    <string name="bg_3">To do this go to:\n Battery > App launch > petaSOS > Manage manually></string>
-    <string name="bg_4">or\n Apps > Advanced > Special app access > Battery optimization></string>
-    <string name="bg_5">(May differ depending on phone model)</string>
+    <string name="bg_btn">Attention: Best results</string>
+    <string name="bg_title">Disable Battery Optimizations</string>
+    <string name="bg_1">Why should battery optimizations be disabled?\n
+Due to battery optimizations, your device may restrict background work of petaSOS, and block the scheduled message.</string>
+    <string name="bg_2">We strongly recommend that battery optimizations to be DISABLED. This will not consume more power.</string>
+    <string name="bg_3">Depending on your phone model:\n Battery > App launch > petaSOS 飛甲 > Manage manually</string>
+    <string name="bg_4">or\n Settings > Apps > Special app access > Battery optimization</string>
     <string name="open_phone_settings">Open phone settings</string>
     <string name="close">Close</string>
 </resources>

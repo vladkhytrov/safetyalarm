@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             .append(getString(R.string.my_preset_time))
             .append(" $dateText\n")
             .append("$msg\n")
-            .append("${getString(R.string.emergency_contact)}\n")
+            .append("${getString(R.string.emergency_contact)}:\n")
 
         emContacts.iterator().forEach {
             msgBuilder.append("${it.name} ${it.number}\n")
