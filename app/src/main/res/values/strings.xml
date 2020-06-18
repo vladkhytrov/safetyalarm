@@ -28,11 +28,13 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="validation_contacts">Please specify at least one contact.</string>
     <string name="validation_number">Please specify phone number.</string>
     <string name="validation_password">Wrong password</string>
+    <string name="validation_72_hours">Set a time within 72 hours period</string>
     <string name="ok">OK</string>
     <string name="set_password">Set a password</string>
     <string name="password_description">Needed to cancel the message</string>
     <string name="password">Password</string>
     <string name="settings_annotation">*Changes will not affect already scheduled message</string>
+    <string name="dialog_cancel_msg">Are you sure to cancel the message ?</string>
     <!--SMS-->
     <string name="my_name_is">My name is:</string>
     <string name="my_preset_time">My preset time to safety is:</string>
