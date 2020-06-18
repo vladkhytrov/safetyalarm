@@ -50,7 +50,7 @@
             style="@style/introSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginTop="@dimen/margin_l"
             android:text="@string/enable_location" />
 
     </LinearLayout>

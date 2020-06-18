@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="@dimen/margin_l"
+        android:padding="@dimen/margin_m"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,11 +18,11 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/intro_title"
             style="@style/introTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_xl"
             android:gravity="center_horizontal"
-            android:text="Welcome to petaSOS" />
+            android:text="Welcome to petaSOS 飛甲" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/welcome_subtitle"
@@ -45,27 +45,26 @@
 
             <ImageView
                 android:id="@+id/img_eng"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="@dimen/intro_lang_size"
+                android:layout_height="@dimen/intro_lang_size"
                 android:src="@drawable/eng_on" />
 
             <ImageView
                 android:id="@+id/img_ch_tr"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="@dimen/margin_s"
+                android:layout_width="@dimen/intro_lang_size"
+                android:layout_height="@dimen/intro_lang_size"
+                android:layout_marginStart="@dimen/margin_l"
                 android:src="@drawable/tchin_off" />
 
             <ImageView
                 android:id="@+id/img_ch_sim"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="@dimen/margin_s"
+                android:layout_width="@dimen/intro_lang_size"
+                android:layout_height="@dimen/intro_lang_size"
+                android:layout_marginStart="@dimen/margin_l"
                 android:src="@drawable/schin_off" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

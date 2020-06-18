@@ -22,6 +22,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textAllCaps">false</item>
+        <item name="rippleColor">#1F1B1B1D</item>
     </style>
 
     <style name="ButtonPrimary">

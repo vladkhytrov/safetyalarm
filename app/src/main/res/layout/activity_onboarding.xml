@@ -5,40 +5,32 @@
     android:layout_height="match_parent"
     android:background="@color/background_intro">
 
-<!--    <View-->
-<!--        android:id="@+id/arc_top"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="130dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:background="@drawable/arc_up"/>-->
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@id/layout_dots"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <include-->
-<!--        layout="@layout/fragment_intro_description"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginBottom="@dimen/margin_l"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/arc_bottom"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+    <!--    <include-->
+    <!--        layout="@layout/fragment_intro_description"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginBottom="@dimen/margin_l"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/arc_bottom"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
     <LinearLayout
         android:id="@+id/layout_dots"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:layout_marginBottom="@dimen/margin_m"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/btn_intro_continue"
@@ -50,27 +42,27 @@
         style="@style/ButtonIntro"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="@dimen/margin_l"
         android:layout_marginStart="@dimen/margin_l"
+        android:layout_marginBottom="@dimen/margin_m"
         android:text="Back"
+        app:icon="@drawable/ic_arrow_back"
+        app:iconGravity="textStart"
+        app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_intro_continue"
         style="@style/ButtonIntro"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="@dimen/margin_l"
         android:layout_marginStart="@dimen/margin_xl"
         android:layout_marginEnd="@dimen/margin_l"
-        android:text="Continue"
-        app:iconPadding="@dimen/margin_m"
-        android:paddingStart="@dimen/margin_m"
-        android:paddingEnd="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_m"
+        android:text="Next"
+        app:icon="@drawable/ic_arrow_forward"
         app:iconGravity="textEnd"
         app:iconTint="@color/black"
-        app:icon="@drawable/ic_arrow_forward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

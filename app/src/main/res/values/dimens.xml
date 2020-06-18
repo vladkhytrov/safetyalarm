@@ -12,4 +12,9 @@
     <dimen name="text_body">16sp</dimen>
     <dimen name="text_btn_primary">18sp</dimen>
     <dimen name="text_btn_increment">16sp</dimen>
+
+    <dimen name="intro_lang_size">50dp</dimen>
+    <dimen name="dot_inactive">8dp</dimen>
+    <dimen name="dot_active">10dp</dimen>
+    <dimen name="dot_margin">4dp</dimen>
 </resources>
