@@ -1,6 +1,5 @@
 package com.aegis.petasos.fragment
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -17,8 +16,9 @@ import java.util.*
 class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
     private val smsViewModel by activityViewModels<SmsViewModel>()
-
     private val currentTime: Calendar = Calendar.getInstance()
+
+    private var delayMinutes = 15
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,22 +32,22 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
 
         currentTime.timeInMillis = time
 
-        btn_15_mins.setOnClickListener {
-            currentTime.add(Calendar.MINUTE, 15)
-            setFormattedTime(currentTime.timeInMillis)
-        }
-        btn_30_mins.setOnClickListener {
-            currentTime.add(Calendar.MINUTE, 30)
-            setFormattedTime(currentTime.timeInMillis)
-        }
-        btn_1_hour.setOnClickListener {
-            currentTime.add(Calendar.HOUR, 1)
-            setFormattedTime(currentTime.timeInMillis)
-        }
-        btn_2_hours.setOnClickListener {
-            currentTime.add(Calendar.HOUR, 2)
-            setFormattedTime(currentTime.timeInMillis)
-        }
+//        btn_15_mins.setOnClickListener {
+//            currentTime.add(Calendar.MINUTE, 15)
+//            setFormattedTime(currentTime.timeInMillis)
+//        }
+//        btn_30_mins.setOnClickListener {
+//            currentTime.add(Calendar.MINUTE, 30)
+//            setFormattedTime(currentTime.timeInMillis)
+//        }
+//        btn_1_hour.setOnClickListener {
+//            currentTime.add(Calendar.HOUR, 1)
+//            setFormattedTime(currentTime.timeInMillis)
+//        }
+//        btn_2_hours.setOnClickListener {
+//            currentTime.add(Calendar.HOUR, 2)
+//            setFormattedTime(currentTime.timeInMillis)
+//        }
 
         childFragmentManager.beginTransaction()
             .replace(
@@ -56,9 +56,9 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
             )
             .commit()
 
-        tv_date_time_change.setOnClickListener {
-            showDateTimePicker()
-        }
+//        tv_date_time_change.setOnClickListener {
+//            showDateTimePicker()
+//        }
 
         btn_cancel_change.setOnClickListener {
             AlertDialog.Builder(requireContext())
@@ -74,9 +74,64 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
                 .show()
 
         }
-        btn_reset.setOnClickListener {
+//        btn_reset.setOnClickListener {
+//            resetMsg()
+//        }
+
+        btn_minus.setOnClickListener {
+            minusDelay()
+        }
+        btn_plus.setOnClickListener {
+            plusDelay()
+        }
+        btn_delay.setOnClickListener {
+            currentTime.add(Calendar.MINUTE, delayMinutes)
             resetMsg()
         }
+
+        refreshDelay()
+    }
+
+    private fun minusDelay() {
+        btn_plus.isEnabled = true
+        delayMinutes = delayMinutes.minus(15)
+        if (delayMinutes <= 15) {
+            delayMinutes = 15
+            btn_minus.isEnabled = false
+        }
+        refreshDelay()
+    }
+
+    private fun plusDelay() {
+        btn_minus.isEnabled = true
+        delayMinutes = delayMinutes.plus(15)
+        if (delayMinutes >= 120) {
+            delayMinutes = 120
+            btn_plus.isEnabled = false
+        }
+        refreshDelay()
+    }
+
+    private fun refreshDelay() {
+        val hours: Int = delayMinutes / 60
+        val minutes: Int = delayMinutes % 60
+
+        var hr = if (hours > 0) {
+            if (hours > 1) {
+                "$hours ${getString(R.string.hours)} "
+            } else {
+                "$hours ${getString(R.string.hour)} "
+            }
+        } else {
+            ""
+        }
+        val mins = if (minutes > 0) {
+            "$minutes ${getString(R.string.minutes)}"
+        } else {
+            ""
+        }
+        val formatted = "${getString(R.string.delay_by)} $hr$mins"
+        tv_delay.text = formatted
     }
 
     private fun drawLang() {
@@ -130,7 +185,12 @@ class ChangeMsgFragment : Fragment(R.layout.fragment_change_msg) {
     private fun resetMsg() {
         SmsWorker.cancelAllWorks(requireContext())
         val newMsg = tv_msg.text.toString()
-        (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
+        val reset = (activity as MainActivity).sendSMS(currentTime.timeInMillis, newMsg, reset = true)
+        if (reset) {
+            delayMinutes = 15
+            refreshDelay()
+            tv_date_time_change.text = currentTime.timeInMillis.formatted()
+        }
     }
 
     private fun setFormattedTime(millis: Long) {

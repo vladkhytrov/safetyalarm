@@ -61,32 +61,32 @@ class MainActivity : AppCompatActivity() {
         checkActiveWork()
     }
 
-    fun sendSMS(sendAt: Long, msg: String, reset: Boolean = false) {
+    fun sendSMS(sendAt: Long, msg: String, reset: Boolean = false): Boolean {
         // check for future date
         if (sendAt <= 0 || sendAt <= System.currentTimeMillis()) {
             showToast(getString(R.string.validation_date))
-            return
+            return false
         }
         // check 72 hours limit
         val diff = sendAt - System.currentTimeMillis()
         val hour = 3600000
         if (diff.div(hour) > 72) {
             showToast(getString(R.string.validation_72_hours))
-            return
+            return false
         }
         val dateText = sendAt.formatted()
 
         val username = userViewModel.username.value
         if (username.isNullOrEmpty()) {
             showToast(getString(R.string.validation_name))
-            return
+            return false
         }
 
         val emContacts = contactsViewModel.emergencyContacts.value.orEmpty()
         val secContacts = contactsViewModel.secondaryContacts.value.orEmpty()
         if (emContacts.isNullOrEmpty() && secContacts.isNullOrEmpty()) {
             showToast(getString(R.string.validation_contacts))
-            return
+            return false
         }
 
         val locationEnabled = userViewModel.locationEnabled.value!!
@@ -154,6 +154,8 @@ class MainActivity : AppCompatActivity() {
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "sms")
         bundle.putString(Analytics.Param.SENDING_TIME, sendAt.toString())
         FirebaseAnalytics.getInstance(this).logEvent(Analytics.Event.SMS_CREATED, bundle)
+
+        return true
     }
 
     private fun requestEnableGPS() {

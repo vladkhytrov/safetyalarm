@@ -27,7 +27,7 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="validation_name">Please specify your full name.</string>
     <string name="validation_contacts">Please specify at least one contact.</string>
     <string name="validation_number">Please specify phone number.</string>
-    <string name="validation_72_hours">Set a time within 72 hours period</string>
+    <string name="validation_72_hours">Set a time within a 72 hours period</string>
     <string name="ok">OK</string>
     <string name="settings_annotation">*Changes will not affect already scheduled message</string>
     <string name="dialog_cancel_msg">Are you sure to cancel the message?</string>
@@ -44,4 +44,10 @@ Due to battery optimizations, your device may restrict background work of petaSO
     <string name="bg_4">or\n Settings > Apps > Special app access > Battery optimization</string>
     <string name="open_phone_settings">Open phone settings</string>
     <string name="close">Close</string>
+    <string name="active_message">Active message</string>
+    <string name="hour">hour</string>
+    <string name="hours">hours</string>
+    <string name="minutes">mins</string>
+    <string name="delay">Delay</string>
+    <string name="delay_by">Delay by</string>
 </resources>

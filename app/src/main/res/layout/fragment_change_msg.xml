@@ -92,7 +92,7 @@
         android:layout_margin="@dimen/margin_m"
         app:cardCornerRadius="@dimen/corner_radius"
         app:cardElevation="@dimen/elevation"
-        app:layout_constraintBottom_toTopOf="@id/layout_buttons"
+        app:layout_constraintBottom_toTopOf="@id/btn_cancel_change"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_settings">
@@ -105,20 +105,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/margin_xl">
+                android:padding="@dimen/margin_l">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_msg_label"
                     style="@style/styleSubtitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Active message" />
+                    android:text="@string/active_message" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_msg"
                     style="@style/styleBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="normal"
                     android:layout_marginStart="@dimen/margin_s" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -129,73 +130,66 @@
                     android:layout_marginTop="@dimen/margin_m"
                     android:text="@string/send_at" />
 
-                <com.google.android.material.button.MaterialButton
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_date_time_change"
-                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    style="@style/styleBody"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_s"
-                    android:layout_marginTop="@dimen/margin_m"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_body"
-                    android:textStyle="bold"
-                    app:icon="@drawable/ic_schedule"
-                    app:iconPadding="@dimen/margin_m"
-                    app:iconTint="@color/black"
+                    android:layout_marginTop="@dimen/margin_s"
                     tools:text="01/06/2020 14:30" />
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_l"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="@dimen/margin_l">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_15_mins"
-                        style="@style/ButtonIncrement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="58dp"
+                        android:id="@+id/btn_minus"
+                        style="@style/ButtonIconOnly"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_marginEnd="@dimen/margin_m"
-                        android:layout_weight="1"
-                        android:text="@string/plus_15_mins" />
+                        app:icon="@drawable/ic_minus"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:enabled="false"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_delay"
+                        style="@style/styleBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Delay by 15 mins" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_30_mins"
-                        style="@style/ButtonIncrement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="58dp"
-                        android:layout_weight="1"
-                        android:text="@string/plus_30_mins" />
+                        android:id="@+id/btn_plus"
+                        style="@style/ButtonIconOnly"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:icon="@drawable/ic_plus"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_delay"
+                    style="@style/ButtonPrimary"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/margin_m"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_1_hour"
-                        style="@style/ButtonIncrement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="58dp"
-                        android:layout_marginEnd="@dimen/margin_m"
-                        android:layout_weight="1"
-                        android:text="@string/plus_1_hour" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_2_hours"
-                        style="@style/ButtonIncrement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="58dp"
-                        android:layout_weight="1"
-                        android:text="@string/plus_2_hours" />
-
-                </LinearLayout>
+                    android:layout_marginBottom="@dimen/margin_s"
+                    android:text="@string/delay" />
 
             </LinearLayout>
 
@@ -203,33 +197,15 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:id="@+id/layout_buttons"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel_change"
+        style="@style/ButtonSecondary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="58dp"
+        android:layout_margin="@dimen/margin_m"
+        android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_cancel_change"
-            style="@style/ButtonSecondary"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_margin="@dimen/margin_m"
-            android:layout_weight="1"
-            android:text="@string/cancel" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_reset"
-            style="@style/ButtonSecondary"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_margin="@dimen/margin_m"
-            android:layout_weight="1"
-            android:text="@string/reset" />
-
-    </LinearLayout>
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
