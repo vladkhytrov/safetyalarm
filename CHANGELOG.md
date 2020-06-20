@@ -10,6 +10,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.6] - 2020-06-20
+- New Intro.
+- Implemented new "Delay" functionality.
+- Analytics.
+- 72 hours limit for schedule message.
+- Confirmation dialog to cancel message.
+- High res icons.
+- Translations.
+- Bug fixes.
+
 ## [1.3] - 2020-06-12
 - Added battery optimization prompt.
 - Scheduled time label replaced with button.
