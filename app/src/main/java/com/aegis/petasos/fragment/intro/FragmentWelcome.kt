@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.aegis.petasos.R
-import com.aegis.petasos.activity.OnBoardingActivity
+import com.aegis.petasos.activity.IntroActivity
 import com.aegis.petasos.setImg
 import com.yariksoffice.lingver.Lingver
 import kotlinx.android.synthetic.main.fragment_intro_welcome.*
@@ -22,19 +22,19 @@ class FragmentWelcome : Fragment(R.layout.fragment_intro_welcome) {
         val lingver = Lingver.getInstance()
         img_eng.setOnClickListener {
             lingver.setLocale(requireContext(), Locale.ENGLISH)
-            val i = Intent(requireContext(), OnBoardingActivity::class.java)
+            val i = Intent(requireContext(), IntroActivity::class.java)
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(i)
         }
         img_ch_tr.setOnClickListener {
             lingver.setLocale(requireContext(), Locale.TRADITIONAL_CHINESE)
-            val i = Intent(requireContext(), OnBoardingActivity::class.java)
+            val i = Intent(requireContext(), IntroActivity::class.java)
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(i)
         }
         img_ch_sim.setOnClickListener {
             lingver.setLocale(requireContext(), Locale.SIMPLIFIED_CHINESE)
-            val i = Intent(requireContext(), OnBoardingActivity::class.java)
+            val i = Intent(requireContext(), IntroActivity::class.java)
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(i)
         }

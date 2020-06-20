@@ -15,10 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.OnBoardingActivity"
+            android:name=".activity.IntroActivity"
             android:theme="@style/AppTheme.Intro"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activity.IntroActivity" />
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen">

@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
             val userStorage = UserStorage(this)
             if (userStorage.isFirstLaunch()) {
                 startActivity(
-                    Intent(this, OnBoardingActivity::class.java)
+                    Intent(this, IntroActivity::class.java)
                 )
                 finish()
             } else {
