@@ -27,14 +27,14 @@
     <string name="validation_name">請輸入您的全名。</string>
     <string name="validation_contacts">請輸入最少一位聯絡人。</string>
     <string name="validation_number">請輸入聯絡人電話號碼。</string>
-    <string name="validation_72_hours">Set a time within 72 hours period</string>
+    <string name="validation_72_hours">預計時間(七十二小時內)</string>
     <string name="ok">確定</string>
-    <string name="settings_annotation">若有已息預計信息，設定更新不受影響。</string>
-    <string name="dialog_cancel_msg">Are you sure to cancel the message ?</string>
+    <string name="settings_annotation">若有已預計信息，設定更新不受影響。</string>
+    <string name="dialog_cancel_msg">你是否決定取消信息?</string>
     <!--SMS-->
-    <string name="my_name_is">我的名字:</string>
+    <string name="my_name_is">名字:</string>
     <string name="my_preset_time">預計安全時間:</string>
-    <string name="last_location">發信地點:</string>
+    <string name="last_location">發信位置:</string>
     <!--Battery-->
     <string name="bg_btn">注意:最佳效果</string>
     <string name="bg_title">取消最佳化電池用量</string>
@@ -47,6 +47,28 @@
     <string name="bg_4">或\n
 裝置維護＞電量＞應用程式電量管理＞
 不少進入休眠的應用程式＞加上petaSOS 飛甲</string>
-    <string name="open_phone_settings">Open phone settings</string>
-    <string name="close">Close</string>
+    <string name="open_phone_settings">開啟電話設定</string>
+    <string name="close">關閉</string>
+    <string name="active_message">已設信息</string>
+    <string name="hour">小時</string>
+    <string name="hours">小時</string>
+    <string name="minutes">分鐘</string>
+    <string name="delay">延遲</string>
+    <string name="delay_by">延遲</string>
+    <string name="intro_welcome">歡迎使用 petaSOS 飛甲</string>
+    <string name="intro_choose_language">請選擇語言</string>
+    <string name="intro_back">上一步</string>
+    <string name="intro_next">下一步</string>
+    <string name="intro_schedule_title">預計SMS信息收信人</string>
+    <string name="intro_schedule_text1">在發信前所有資訊只存於您的電話內</string>
+    <string name="intro_schedule_text2">不用雲端服務</string>
+    <string name="intro_location_title">包括位置</string>
+    <string name="intro_location_text1">您的信息可包含您發信時的位置，方便您的家人朋友找到您。</string>
+    <string name="intro_location_text2">您的位置不會被定位，只是在發信時側知您的位置。</string>
+    <string name="intro_contacts_title">輸入聯絡人</string>
+    <string name="intro_contacts_text1">請輸入收信人的資料</string>
+    <string name="intro_em_contacts_subtext">將包括在信息中并且收到緊急信息</string>
+    <string name="settings_sec_contacts_subtext">只收到緊急信息</string>
+    <string name="intro_name_title">請輸入你的全名</string>
+    <string name="intro_name_text">你的名字將包括在信息中</string>
 </resources>

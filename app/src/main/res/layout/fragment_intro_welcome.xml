@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_xl"
             android:gravity="center_horizontal"
-            android:text="Welcome to petaSOS 飛甲" />
+            android:text="@string/intro_welcome" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/welcome_subtitle"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_l"
-            android:text="Choose your language" />
+            android:text="@string/intro_choose_language" />
 
         <LinearLayout
             android:id="@+id/intro_layout_lang"

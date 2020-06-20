@@ -27,7 +27,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="@dimen/margin_xl"
             android:gravity="center_horizontal"
-            android:text="Insert your full name" />
+            android:text="@string/intro_name_title" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/introSubtitle"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_m"
             android:gravity="center_horizontal"
-            android:text="Your name will appear in the message" />
+            android:text="@string/intro_name_text" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/username_layout"

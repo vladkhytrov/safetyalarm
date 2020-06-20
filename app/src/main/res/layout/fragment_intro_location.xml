@@ -28,7 +28,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="@dimen/margin_xl"
             android:gravity="center_horizontal"
-            android:text="Include location" />
+            android:text="@string/intro_location_title" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/introSubtitle"
@@ -36,14 +36,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_m"
             android:gravity="center_horizontal"
-            android:text="Your message can include your location information with the message is sent, allowing your contacts to locate you" />
+            android:text="@string/intro_location_text1" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/introBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Location is not tracked, only pulled when the message is sent at scheduled time" />
+            android:text="@string/intro_location_text2" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/location_switch_intro"

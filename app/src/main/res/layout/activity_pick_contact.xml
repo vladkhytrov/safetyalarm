@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_xl"
-            android:text="Phone number" />
+            android:text="@string/phone_number" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_number_pick"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_xl"
-            android:text="or" />
+            android:text="@string/or" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_choose_phone_contact"
@@ -100,7 +100,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_m"
             android:fontFamily="sans-serif"
-            android:text="Pick from phone contacts"
+            android:text="@string/pick_phone_contacts"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -113,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_margin="@dimen/margin_m"
-        android:text="Confirm"
+        android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

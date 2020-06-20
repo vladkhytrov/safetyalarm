@@ -32,8 +32,8 @@ Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; 
     <string name="settings_annotation">*Changes will not affect already scheduled message</string>
     <string name="dialog_cancel_msg">Are you sure to cancel the message?</string>
     <!--SMS-->
-    <string name="my_name_is">My name is:</string>
-    <string name="my_preset_time">My preset time to safety is:</string>
+    <string name="my_name_is">Name:</string>
+    <string name="my_preset_time">Preset time to safety is:</string>
     <string name="last_location">Last location:</string>
     <string name="bg_btn">Attention: Best results</string>
     <string name="bg_title">Disable Battery Optimizations</string>
@@ -50,4 +50,25 @@ Due to battery optimizations, your device may restrict background work of petaSO
     <string name="minutes">mins</string>
     <string name="delay">Delay</string>
     <string name="delay_by">Delay by</string>
+    <!--Intro-->
+    <string name="intro_welcome">Welcome to petaSOS 飛甲</string>
+    <string name="intro_choose_language">Choose your language</string>
+    <string name="intro_back">Back</string>
+    <string name="intro_next">Next</string>
+    <string name="intro_schedule_title">Schedule an SMS to your trusted contacts</string>
+    <string name="intro_schedule_text1">Your information and scheduled message are stored on your phone only</string>
+    <string name="intro_schedule_text2">No cloud services are used for security purpose</string>
+    <string name="intro_location_title">Include location</string>
+    <string name="intro_location_text1">Your message can include your location information with the message is sent, allowing your contacts to locate you</string>
+    <string name="intro_location_text2">Location is not tracked, only detected when the message is sent at the scheduled time</string>
+    <string name="intro_contacts_title">Add your contacts</string>
+    <string name="intro_contacts_text1">Specify contacts who will receive the message</string>
+    <string name="intro_em_contacts_subtext">will both receive the message and be listed in the message</string>
+    <string name="settings_sec_contacts_subtext">will only receive the message</string>
+    <string name="intro_name_title">Insert your full name</string>
+    <string name="intro_name_text">Your name will appear in the message</string>
+    <string name="phone_number">Phone number</string>
+    <string name="or">or</string>
+    <string name="pick_phone_contacts">Pick from phone contacts</string>
+    <string name="confirm">Confirm</string>
 </resources>

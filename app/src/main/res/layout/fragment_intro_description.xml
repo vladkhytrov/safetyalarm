@@ -27,7 +27,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="@dimen/margin_xl"
             android:gravity="center_horizontal"
-            android:text="Schedule an SMS to your trusted contacts" />
+            android:text="@string/intro_schedule_title" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/introSubtitle"
@@ -35,14 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_m"
             android:gravity="center_horizontal"
-            android:text="Your information and scheduled message are stored on your phone only" />
+            android:text="@string/intro_schedule_text1" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/introBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="No cloud services are used for security purpose" />
+            android:text="@string/intro_schedule_text2" />
 
     </LinearLayout>
 

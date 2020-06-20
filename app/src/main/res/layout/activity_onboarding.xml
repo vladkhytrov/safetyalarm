@@ -17,16 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    <include-->
-    <!--        layout="@layout/fragment_intro_description"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:layout_marginBottom="@dimen/margin_l"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/arc_bottom"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"/>-->
-
     <LinearLayout
         android:id="@+id/layout_dots"
         android:layout_width="wrap_content"
@@ -44,7 +34,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="@dimen/margin_l"
         android:layout_marginBottom="@dimen/margin_m"
-        android:text="Back"
+        android:text="@string/intro_back"
         app:icon="@drawable/ic_arrow_back"
         app:iconGravity="textStart"
         app:iconTint="@color/black"
@@ -59,7 +49,7 @@
         android:layout_marginStart="@dimen/margin_xl"
         android:layout_marginEnd="@dimen/margin_l"
         android:layout_marginBottom="@dimen/margin_m"
-        android:text="Next"
+        android:text="@string/intro_next"
         app:icon="@drawable/ic_arrow_forward"
         app:iconGravity="textEnd"
         app:iconTint="@color/black"

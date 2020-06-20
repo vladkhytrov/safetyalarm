@@ -32,7 +32,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="@dimen/margin_xl"
                 android:gravity="center_horizontal"
-                android:text="Add your contacts" />
+                android:text="@string/intro_contacts_title" />
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/introSubtitle"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_m"
                 android:gravity="center_horizontal"
-                android:text="Specify contacts who will receive the message" />
+                android:text="@string/intro_contacts_text1" />
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/introSubtitle"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_s"
-                android:text="will both receive the message and be listed in the message"
+                android:text="@string/intro_em_contacts_subtext"
                 android:textSize="12sp" />
 
             <com.google.android.material.chip.ChipGroup
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_s"
-                android:text="will only receive the message"
+                android:text="@string/settings_sec_contacts_subtext"
                 android:textSize="12sp" />
 
             <com.google.android.material.chip.ChipGroup
