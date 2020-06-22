@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">petaSOS 飛甲</string>
+    <string name="app_name">petaSOS</string>
     <string name="intro">Schedule an SMS to your trusted contact(s), with your latest location.
 Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; <b>only pulled when</b> the message is sent at scheduled time.
 </string>

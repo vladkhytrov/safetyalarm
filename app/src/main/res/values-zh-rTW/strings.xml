@@ -63,12 +63,16 @@
     <string name="intro_schedule_text1">在發信前所有資訊只存於您的電話內</string>
     <string name="intro_schedule_text2">不用雲端服務</string>
     <string name="intro_location_title">包括位置</string>
-    <string name="intro_location_text1">您的信息可包含您發信時的位置，方便您的家人朋友找到您。</string>
-    <string name="intro_location_text2">您的位置不會被定位，只是在發信時側知您的位置。</string>
+    <string name="intro_location_text1">您的信息可包括您發信時的位置，方便您的家人朋友找到您。</string>
+    <string name="intro_location_text2">您的位置不會被定位，只是在發信時測知您的位置。</string>
     <string name="intro_contacts_title">輸入聯絡人</string>
     <string name="intro_contacts_text1">請輸入收信人的資料</string>
     <string name="intro_em_contacts_subtext">將包括在信息中并且收到緊急信息</string>
     <string name="settings_sec_contacts_subtext">只收到緊急信息</string>
     <string name="intro_name_title">請輸入你的全名</string>
     <string name="intro_name_text">你的名字將包括在信息中</string>
+    <string name="phone_number">電話號碼</string>
+    <string name="or">或</string>
+    <string name="pick_phone_contacts">選自電話上聯絡人</string>
+    <string name="confirm">確定</string>
 </resources>

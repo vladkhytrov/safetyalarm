@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.6] - 2020-06-20
 - New Intro.
-- Implemented new "Delay" functionality.
+- New "Delay" functionality.
 - Analytics.
 - 72 hours limit for schedule message.
 - Confirmation dialog to cancel message.
