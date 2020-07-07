@@ -16,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/intro_title"
             style="@style/introTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +24,6 @@
             android:text="@string/intro_welcome" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/welcome_subtitle"
             style="@style/introSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +31,6 @@
             android:text="@string/intro_choose_language" />
 
         <LinearLayout
-            android:id="@+id/intro_layout_lang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

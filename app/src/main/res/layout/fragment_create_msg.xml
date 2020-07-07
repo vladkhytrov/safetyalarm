@@ -125,7 +125,6 @@
                     android:layout_marginStart="@dimen/margin_s" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_be_home_by"
                     style="@style/styleSubtitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

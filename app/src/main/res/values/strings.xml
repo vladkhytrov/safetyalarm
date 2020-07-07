@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">petaSOS</string>
-    <string name="intro">Schedule an SMS to your trusted contact(s), with your latest location.
-Scheduled message is stored on the phone <b>only</b>.  Location is not tracked; <b>only pulled when</b> the message is sent at scheduled time.
-</string>
     <string name="message">Message</string>
     <string name="name">User full name</string>
     <string name="settings">Settings</string>
     <string name="schedule">Schedule</string>
     <string name="cancel">Cancel</string>
-    <string name="reset">Reset</string>
-    <string name="plus_15_mins">+15 mins</string>
-    <string name="plus_30_mins">+30 mins</string>
-    <string name="plus_1_hour">+1 hour</string>
-    <string name="plus_2_hours">+2 hours</string>
     <string name="back">Back</string>
     <string name="enable_location">Enable location service</string>
     <string name="emergency_contact">Emergency Contact(s)</string>

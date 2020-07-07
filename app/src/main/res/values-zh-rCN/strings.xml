@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">petaSOS 飞甲</string>
-    <string name="intro">预计SMS信息收信人。信息可包含发信地点。
-预计信息<b>只存于用户电话</b>。本应用<b>不会追踪用户地点</b>，只在预计时间把用户地点加入信息中。</string>
     <string name="message">信息</string>
     <string name="name">用戶全名</string>
     <string name="settings">设定</string>
     <string name="schedule">安排</string>
     <string name="cancel">取消</string>
-    <string name="reset">重设</string>
-    <string name="plus_15_mins">+15分钟</string>
-    <string name="plus_30_mins">+30分钟</string>
-    <string name="plus_1_hour">+1小时</string>
-    <string name="plus_2_hours">+2小时</string>
     <string name="back">返回</string>
     <string name="enable_location">启用定位服务</string>
     <string name="emergency_contact">紧急联络</string>
